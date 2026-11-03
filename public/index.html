@@ -117,6 +117,7 @@ main{position:relative;z-index:2}
 .crewshare{position:relative;display:inline-flex}
 .crewmenu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:30;min-width:260px;padding:8px;border-radius:18px;background:#0D1326;border:1px solid var(--line2);box-shadow:0 24px 60px -16px rgba(0,0,0,.8);display:flex;flex-direction:column;gap:4px;text-align:left}
 .crewmenu[hidden]{display:none}
+@media (max-width:1140px){.crewmenu{position:fixed;top:auto;left:12px;right:12px;bottom:calc(88px + env(safe-area-inset-bottom,0px));transform:none;min-width:0;max-width:440px;margin-inline:auto;z-index:80}}
 .crewmenu a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:var(--cream);text-decoration:none}
 .crewmenu a:hover,.crewmenu a:focus-visible{background:rgba(244,238,225,.07)}
 .crewmenu svg{width:22px;height:22px;flex:0 0 auto}
@@ -1668,7 +1669,16 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   $('#shLi').addEventListener('click', () => { try { navigator.clipboard.writeText(SH.li); } catch (e) {} toast('Copied. On LinkedIn, type @ and pick TecHacks to tag us.', 'wink'); });
   const crewBtn = $('#crewBtn'), crewMenu = $('#crewMenu');
   const setCrew = (o) => { crewMenu.hidden = !o; crewBtn.setAttribute('aria-expanded', o ? 'true' : 'false'); };
-  crewBtn.addEventListener('click', (e) => { e.stopPropagation(); setCrew(crewMenu.hidden); });
+  // Phones: open the native share sheet (WhatsApp, Instagram, Messages…). Fall back to the menu.
+  const canNativeShare = !!navigator.share && matchMedia('(pointer: coarse)').matches;
+  crewBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (canNativeShare && crewMenu.hidden) {
+      navigator.share({ title: 'TecHacks 5.0 Hackathon', text: SH.wa }).catch((err) => { if (err && err.name !== 'AbortError') setCrew(true); });
+      return;
+    }
+    setCrew(crewMenu.hidden);
+  });
   document.addEventListener('click', (e) => { if (!crewMenu.hidden && !e.target.closest('.crewshare')) setCrew(false); });
   addEventListener('keydown', (e) => { if (e.key === 'Escape' && !crewMenu.hidden) { setCrew(false); crewBtn.focus(); } });
   crewMenu.addEventListener('click', (e) => { if (e.target.closest('a')) setTimeout(() => setCrew(false), 50); });
