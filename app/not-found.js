@@ -1,4 +1,4 @@
-export const metadata = { title: 'Lost in orbit · TecHacks 5.0' };
+export const metadata = { title: 'Lost in orbit · TecHacks 5.0 Hackathon' };
 
 export default function NotFound() {
   return (
