@@ -1911,6 +1911,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   onHover($('.hero .kicker'), 'bharat', tricolour, 300);
   onHover($('#tminus'), 'konami', () => { if (!reduce) { let n = 0; const iv = setInterval(() => { warpT = 1; if (++n > 14) clearInterval(iv); }, 110); } feel('launch'); found('konami', 'Hyperdrive engaged. Crew TH-05, you are cleared for lightspeed.', 'starry'); }, 500);
   onHover($('.gantry .rk'), 'launch', () => { flyby(); found('launch', 'Liftoff! You found a secret.', 'starry'); }, 250);
+  onHover($('#finalRk'), 'launch', () => { flyby(); found('launch', 'Liftoff! You found a secret.', 'starry'); }, 250);
   onHover($('.postcard .stamp'), 'pilot', peek, 250);
   onHover($('.moon'), 'moon', () => { const e = $('#egg'); if (e && e.hidden) { e.hidden = false; feel('success'); } }, 400);
   onHover($('#logoSwap'), 'logo', starShower, 900);
