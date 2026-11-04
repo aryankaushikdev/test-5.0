@@ -646,6 +646,10 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
 @keyframes rkFly{0%{transform:translateY(0)}14%{transform:translateY(5px) rotate(-3deg)}22%{transform:translateY(2px) rotate(2deg)}100%{transform:translateY(-115vh)}}
 @keyframes rkFlame{0%{height:0}25%{height:26px}100%{height:70px}}
 @keyframes rkPop{from{transform:scale(.3) translateY(10px);opacity:0}to{transform:none;opacity:1}}
+.rk-fly.soft{animation:rkSoft .8s ease-out forwards}
+.rk-fly.soft::after{display:none}
+@keyframes rkSoft{to{transform:translateY(-40vh);opacity:0}}
+.dock a{touch-action:manipulation}
 @media (max-width:860px){
   .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
   .strip>div:nth-child(2){border-right:0}
@@ -724,18 +728,6 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
 .step b{font-size:17px;margin-bottom:2px}
 .step p{font-size:14.5px;line-height:1.5}
 @media (max-width:860px){.steps{gap:8px}.step{padding:14px 16px;border-radius:16px}.step b{font-size:16px}.olist{gap:6px}.olist li{padding:10px 14px;font-size:14.5px;line-height:1.5}.offer{gap:14px}}
-/* ---------- easter eggs ---------- */
-.egg-peek{position:fixed;right:-6px;bottom:calc(var(--dock-h,0px) + 12px);z-index:88;width:150px;pointer-events:none;transform:translateX(130%);transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
-.egg-peek.on{transform:translateX(0) rotate(-8deg)}
-.egg-peek img{width:100%;filter:drop-shadow(0 12px 24px rgba(0,0,0,.5));animation:eggWave 1s ease-in-out infinite}
-.egg-peek span{position:absolute;right:118px;top:6px;white-space:nowrap;padding:8px 12px;border-radius:14px 14px 4px 14px;background:var(--cream);color:var(--ink);font-weight:700;font-size:14px;transform:rotate(8deg)}
-@keyframes eggWave{50%{transform:rotate(6deg)}}
-.egg-flag{position:fixed;left:0;right:0;top:0;height:7px;z-index:99;pointer-events:none;background:linear-gradient(90deg,#FF9933 0 33.3%,#FFFFFF 33.3% 66.6%,#138808 66.6%);transform-origin:left;animation:eggFlag 2.8s ease forwards}
-@keyframes eggFlag{0%{transform:scaleX(0)}35%{transform:scaleX(1)}80%{opacity:1}100%{opacity:0}}
-.egg-star{position:fixed;top:-30px;z-index:89;pointer-events:none;font-size:22px;animation:eggStar linear forwards}
-@keyframes eggStar{to{transform:translateY(112vh) rotate(540deg)}}
-.pilot-btn.roll .float{animation:eggRoll 1.1s cubic-bezier(.4,0,.2,1)}
-@keyframes eggRoll{to{transform:rotate(720deg)}}
 /* ---------- Digital swag tabs ---------- */
 .swtabs{display:flex;flex-wrap:wrap;gap:10px;padding-top:clamp(22px,3vw,34px)}
 .swtab{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;border-radius:999px;border:1.5px dashed rgba(244,238,225,.3);color:var(--soft);text-decoration:none;font-weight:700;font-size:15px;transition:border-color .2s ease,color .2s ease,background .2s ease}
@@ -1521,7 +1513,6 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
         <h2 class="h2" style="font-size:clamp(28px,4vw,46px)">Thanks for flying TecHacks.</h2>
         <p style="margin:0;color:#3A3F4E">Made with ♥ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" data-h="tap">Aryan Kaushik</a>.</p>
         <p style="margin:0;color:#3A3F4E;font-family:var(--mono);font-size:13px;letter-spacing:.16em">SINCE 2019</p>
-        <p style="margin:0;color:#B43A0C;font-family:var(--mono);font-size:12px;letter-spacing:.14em">✦ 8 SECRETS HIDDEN ON THIS SITE · HOVER AROUND</p>
         <div class="links"><a href="#home">Home</a><a href="#board">Board</a><a href="#tracks">Tracks</a><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#crew">Crew</a><a href="#sponsors">Partners</a><a href="#swag">Swag</a><a href="#share">Share</a><a href="#faq">FAQ</a></div><div class="socials dark"><a class="soc" href="https://www.instagram.com/techacks.tech/" target="_blank" rel="noopener" aria-label="Instagram @techacks.tech" title="Instagram @techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://x.com/techackstech" target="_blank" rel="noopener" aria-label="X (Twitter) @techackstech" title="X · @techackstech" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4-5.6 6.4H2.2l7.3-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.5l11.2 14.5Z"/></svg></a><a class="soc" href="mailto:hi@techacks.tech" aria-label="Email hi@techacks.tech" title="hi@techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a><a class="soc" href="https://discord.gg/87DfB5tvfm" target="_blank" rel="noopener" aria-label="Discord: join the TecHacks server" title="Discord · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a14.6 14.6 0 0 0-5.8 0l-.5-1a16 16 0 0 0-3.9 1.4C2.2 9.1 1.5 12.7 1.8 16.2a16 16 0 0 0 4.8 2.4l1-1.6c-.6-.2-1.1-.5-1.6-.8l.4-.3a11.4 11.4 0 0 0 11.2 0l.4.3c-.5.3-1 .6-1.6.8l1 1.6a16 16 0 0 0 4.8-2.4c.4-4-.6-7.6-2.9-10.8ZM8.7 14.1c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.8 2-1.7 2Zm6.6 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.7 2-1.7 2Z"/></svg></a><a class="soc" href="https://www.linkedin.com/company/techacks.tech" target="_blank" rel="noopener" aria-label="LinkedIn: TecHacks" title="LinkedIn · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3.2-1.9 3.4 0 4 2.2 4 5.1V21h-3v-6.2c0-1.5 0-3.3-2-3.3s-2.3 1.6-2.3 3.2V21H9z"/></svg></a><a class="soc" href="https://linktr.ee/techacks.tech" target="_blank" rel="noopener" aria-label="All our links on Linktree" title="Linktree · techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M4.5 6.5l15 7M19.5 6.5l-15 7"/></svg></a></div>
         <div class="copyline"><code style="background:#E9E1CF">hi@techacks.tech</code><button class="btn ink sm" type="button" data-copy="hi@techacks.tech" data-h="success">Copy</button></div>
       </div>
@@ -1791,11 +1782,11 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   /* phone dock: tapping Board launches its rocket, then opens the register page */
   const dockBoard = $('.dock .boardb');
   if (dockBoard) dockBoard.addEventListener('click', (e) => {
-    if (reduce || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
     e.preventDefault();
     if (dockBoard.classList.contains('launching')) return;
     const ico = dockBoard.querySelector('svg'), r = ico.getBoundingClientRect();
-    const fly = document.createElement('div'); fly.className = 'rk-fly'; fly.setAttribute('aria-hidden', 'true');
+    const fly = document.createElement('div'); fly.className = reduce ? 'rk-fly soft' : 'rk-fly'; fly.setAttribute('aria-hidden', 'true');
     fly.style.left = r.left + 'px'; fly.style.top = r.top + 'px'; fly.style.width = r.width + 'px'; fly.style.height = r.height + 'px';
     fly.appendChild(ico.cloneNode(true)); document.body.appendChild(fly);
     dockBoard.classList.add('launching');
@@ -1845,77 +1836,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     $$('.tilt').forEach((el) => { el.addEventListener('pointermove', (e) => { const r = el.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; el.style.transform = 'perspective(900px) rotateY(' + (x * 7) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-4px)'; }); el.addEventListener('pointerleave', () => { el.style.transform = ''; }); });
   }
   function flyby() { if (reduce) return; const r = document.createElement('img'); r.src = 'img/pilot.webp'; r.alt = ''; r.className = 'flyby'; document.body.appendChild(r); feel('launch'); setTimeout(() => r.remove(), 2300); }
-  let typed = ''; addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea')) return; typed = (typed + (e.key || '')).slice(-6).toLowerCase(); if (typed === 'launch') { flyby(); found('launch', 'Liftoff! You found a secret.', 'starry'); } });
-
-  /* ================= easter eggs (8 secrets) ================= */
-  const EGG_TOTAL = 8;
-  let eggs = store.get('eggs', []); if (!Array.isArray(eggs)) eggs = [];
-  function found(id, msg, mood) {
-    const isNew = !eggs.includes(id); if (isNew) { eggs.push(id); store.set('eggs', eggs); }
-    toast(msg + (isNew ? ' · Secret ' + eggs.length + ' of ' + EGG_TOTAL : ''), mood || 'starry');
-    clearTimeout(tt); tt = setTimeout(() => toastEl.classList.remove('on'), 4200);
-    if (isNew && eggs.length === EGG_TOTAL) setTimeout(() => { toast('All ' + EGG_TOTAL + ' secrets found! Screenshot this and tag @techacks.tech.', 'love'); clearTimeout(tt); tt = setTimeout(() => toastEl.classList.remove('on'), 6500); feel('success'); }, 4400);
-  }
-  // 1. Konami code: hyperdrive
-  const KONAMI = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a']; let kpos = 0;
-  addEventListener('keydown', (e) => { const k = (e.key || '').toLowerCase(); kpos = k === KONAMI[kpos] ? kpos + 1 : (k === KONAMI[0] ? 1 : 0); if (kpos === KONAMI.length) { kpos = 0; if (!reduce) { let n = 0; const iv = setInterval(() => { warpT = 1; if (++n > 14) clearInterval(iv); }, 110); } feel('launch'); found('konami', 'Hyperdrive engaged. Crew TH-05, you are cleared for lightspeed.', 'starry'); } });
-  // 2 + 3. typed words: "pilot" and "bharat"
-  let words = '';
-  addEventListener('keydown', (e) => {
-    if (e.target.closest('input,select,textarea')) return;
-    words = (words + (e.key && e.key.length === 1 ? e.key : '')).slice(-12).toLowerCase();
-    if (words.endsWith('pilot')) { words = ''; peek(); }
-    else if (words.endsWith('bharat')) { words = ''; tricolour(); }
-  });
-  function peek() {
-    if ($('.egg-peek')) return;
-    const img = $('#pilotBtn img'), el = document.createElement('div'); el.className = 'egg-peek'; el.setAttribute('aria-hidden', 'true');
-    el.innerHTML = '<span>Psst… you found me!</span><img alt="">'; if (img) el.querySelector('img').src = img.src; document.body.appendChild(el);
-    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on')));
-    feel('select'); found('pilot', 'The Pilot says hi from behind the screen.', 'wink');
-    setTimeout(() => el.classList.remove('on'), 3400); setTimeout(() => el.remove(), 4200);
-  }
-  function tricolour() {
-    if (!reduce) { const f = document.createElement('div'); f.className = 'egg-flag'; f.setAttribute('aria-hidden', 'true'); document.body.appendChild(f); setTimeout(() => f.remove(), 3000); }
-    feel('success'); found('bharat', 'From Bharat 🇮🇳 to World 🌍. That is the whole mission.', 'happy');
-  }
-  // 4. tap the logo five times: Season 5 star shower
-  let logoTaps = [];
-  const logoLink = $('#logoSwap') && $('#logoSwap').closest('a');
-  if (logoLink) logoLink.addEventListener('click', () => {
-    const now = Date.now(); logoTaps = logoTaps.filter((x) => now - x < 2400); logoTaps.push(now);
-    if (logoTaps.length < 3) return; logoTaps = []; starShower();
-  });
-  function starShower() {
-    if (!reduce) { const C = ['#5EE7FF', '#B57CFF', '#E7B3A3', '#FFD66B', '#3D7BFF', '#FF5B1F']; for (let i = 0; i < 26; i++) { const s = document.createElement('span'); s.className = 'egg-star'; s.textContent = '★'; s.setAttribute('aria-hidden', 'true'); s.style.left = (Math.random() * 100) + 'vw'; s.style.color = C[i % C.length]; s.style.animationDuration = (1.6 + Math.random() * 1.6) + 's'; s.style.animationDelay = (Math.random() * .5) + 's'; document.body.appendChild(s); setTimeout(() => s.remove(), 4200); } }
-    feel('success'); found('logo', 'Season 5 star shower. You are officially crew.', 'starry');
-  }
-  // 5. boop the Pilot ten times: barrel roll
-  let dizzy = 0;
-  pilotBtn.addEventListener('click', () => { if (++dizzy % 3) return; if (!reduce) { pilotBtn.classList.remove('roll'); void pilotBtn.offsetWidth; pilotBtn.classList.add('roll'); setTimeout(() => pilotBtn.classList.remove('roll'), 1200); } found('dizzy', 'Okay, okay, I am dizzy! Psst: you will get to name me soon.', 'shocked'); });
-  // 6. the moon base (already on the page) now counts
-  const eggEl = $('#egg'); if (eggEl) new MutationObserver(() => { if (!eggEl.hidden) found('moon', 'Moon base located.', 'starry'); }).observe(eggEl, { attributes: true, attributeFilter: ['hidden'] });
-  // 7. visiting between midnight and 5 am
-  try { if (new Date().getHours() < 5 && !sessionStorage.getItem('th5:mid')) { sessionStorage.setItem('th5:mid', '1'); setTimeout(() => found('midnight', 'Midnight builder detected. You will fit right in at hour 15.', 'sleepy'), 2500); } } catch (e) {}
-  // 8. "launch" (typed) is counted in the handler above
-
-  /* effortless triggers: just hover (or tap on phones) */
-  const eggCool = {};
-  function onHover(el, id, fn, dwell) {
-    if (!el) return; let t = null;
-    const go = () => { const now = Date.now(); if (eggCool[id] && now - eggCool[id] < 8000) return; eggCool[id] = now; fn(); };
-    el.addEventListener('pointerenter', (e) => { if (e.pointerType === 'touch') return; clearTimeout(t); t = setTimeout(go, dwell || 350); });
-    el.addEventListener('pointerleave', () => clearTimeout(t));
-    el.addEventListener('pointerdown', (e) => { if (e.pointerType === 'touch') go(); });
-  }
-  onHover($('.hero .kicker'), 'bharat', tricolour, 300);
-  onHover($('#tminus'), 'konami', () => { if (!reduce) { let n = 0; const iv = setInterval(() => { warpT = 1; if (++n > 14) clearInterval(iv); }, 110); } feel('launch'); found('konami', 'Hyperdrive engaged. Crew TH-05, you are cleared for lightspeed.', 'starry'); }, 500);
-  onHover($('.gantry .rk'), 'launch', () => { flyby(); found('launch', 'Liftoff! You found a secret.', 'starry'); }, 250);
-  onHover($('#finalRk'), 'launch', () => { flyby(); found('launch', 'Liftoff! You found a secret.', 'starry'); }, 250);
-  onHover($('.postcard .stamp'), 'pilot', peek, 250);
-  onHover($('.moon'), 'moon', () => { const e = $('#egg'); if (e && e.hidden) { e.hidden = false; feel('success'); } }, 400);
-  onHover($('#logoSwap'), 'logo', starShower, 900);
-  try { console.log('%cTecHacks 5.0 · TH-05', 'font:900 22px system-ui;color:#FF5B1F'); console.log('%cHey builder 👀 There are ' + EGG_TOTAL + ' secrets on this site. Hover around: the flag, the countdown, the rocket, the moon, the stamp, the logo. Tap the Pilot. One only shows up after midnight. Found them all? Tag @techacks.tech.', 'font:14px system-ui;color:#5EE7FF'); } catch (e) {}
+  let typed = ''; addEventListener('keydown', (e) => { if (e.target.closest('input,select,textarea')) return; typed = (typed + (e.key || '')).slice(-6).toLowerCase(); if (typed === 'launch') { flyby(); toast('Liftoff! You found a secret.', 'starry'); } });
   // logo: shine once on load for touch users who never hover
   if (!reduce) setTimeout(() => { const s = $('#logoSwap'); s.classList.add('shine'); setTimeout(() => s.classList.remove('shine'), 1400); }, 1200);
 
@@ -1938,8 +1859,8 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   $('#launchBtn').addEventListener('click', () => {
     const rk = $('#finalRk');
     if (launched) { launched = false; rk.classList.remove('go'); $('#finalTitle').textContent = 'Your seat on the manifest is open.'; $('#finalLine').textContent = 'Registrations for Season 5 are boarding. Grab a crew, pick a track, launch.'; $('#launchBtn').textContent = 'Register your crew · launch'; return; }
-    launched = true; if (!reduce) rk.classList.add('go'); haptic('launch');
-    setTimeout(() => { $('#finalTitle').textContent = 'Liftoff. You’re on the manifest.'; $('#finalLine').textContent = 'Next stop: the registration form. Gather your crew of 2–4, pick a track, and see you on 15 January.'; $('#launchBtn').textContent = 'Watch it again'; location.hash = 'board'; }, reduce ? 0 : 1500);
+    launched = true; rk.classList.add('go'); haptic('launch');
+    setTimeout(() => { $('#finalTitle').textContent = 'Liftoff. You’re on the manifest.'; $('#finalLine').textContent = 'Next stop: the registration form. Gather your crew of 2–4, pick a track, and see you on 15 January.'; $('#launchBtn').textContent = 'Watch it again'; location.hash = 'board'; }, 1500);
   });
 
   /* ================= TRACKS ================= */
