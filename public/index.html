@@ -647,6 +647,10 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
 @keyframes rkFlame{0%{height:0}25%{height:26px}100%{height:70px}}
 @keyframes rkPop{from{transform:scale(.3) translateY(10px);opacity:0}to{transform:none;opacity:1}}
 .rk-fly.soft{animation:rkSoft .8s ease-out forwards}
+.rk-fly2{position:fixed;z-index:90;pointer-events:none;color:#F4EEE1;will-change:transform}
+.rk-fly2 svg{display:block;width:100%;height:100%;filter:drop-shadow(0 0 6px rgba(255,91,31,.9))}
+.rk-fly2 i{position:absolute;left:50%;top:82%;width:9px;height:0;margin-left:-4.5px;border-radius:0 0 50% 50%;background:linear-gradient(#FFD66B,#FF5B1F 55%,rgba(255,91,31,0))}
+.final .rk{will-change:transform}
 .rk-fly.soft::after{display:none}
 @keyframes rkSoft{to{transform:translateY(-40vh);opacity:0}}
 .dock a{touch-action:manipulation}
@@ -1634,6 +1638,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   function haptic(kind) {
     const p = PAT[kind] || PAT.tap;
     try { if (navigator.vibrate && navigator.vibrate(p)) return; } catch (e) {}
+    if (kind === 'launch') return; // iPhone: the label trick below can stop the launch animation
     try { const n = Math.min(3, Math.ceil(p.length / 2)); for (let i = 0; i < n; i++) setTimeout(() => hLabel.click(), i * 70); } catch (e) {}
   }
   function tone(f, d, type, v, f2) {
@@ -1786,9 +1791,16 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     e.preventDefault();
     if (dockBoard.classList.contains('launching')) return;
     const ico = dockBoard.querySelector('svg'), r = ico.getBoundingClientRect();
-    const fly = document.createElement('div'); fly.className = reduce ? 'rk-fly soft' : 'rk-fly'; fly.setAttribute('aria-hidden', 'true');
+    const fly = document.createElement('div'); fly.className = 'rk-fly2'; fly.setAttribute('aria-hidden', 'true');
     fly.style.left = r.left + 'px'; fly.style.top = r.top + 'px'; fly.style.width = r.width + 'px'; fly.style.height = r.height + 'px';
-    fly.appendChild(ico.cloneNode(true)); document.body.appendChild(fly);
+    fly.appendChild(ico.cloneNode(true)); const fl = document.createElement('i'); fly.appendChild(fl); document.body.appendChild(fly);
+    if (fly.animate) {
+      if (reduce) fly.animate([{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(-40vh)', opacity: 0 }], { duration: 800, easing: 'ease-out', fill: 'forwards' });
+      else {
+        fly.animate([{ transform: 'translateY(0) scale(1)' }, { transform: 'translateY(4px) rotate(-5deg) scale(1.2)', offset: .08 }, { transform: 'translateY(0) rotate(4deg) scale(1.4)', offset: .16 }, { transform: 'translateY(-110vh) scale(2)' }], { duration: 1000, easing: 'cubic-bezier(.3,0,.7,1)', fill: 'forwards' });
+        fl.animate([{ height: '0px' }, { height: '24px', offset: .25 }, { height: '60px' }], { duration: 1000, easing: 'ease-out', fill: 'forwards' });
+      }
+    } else fly.className = reduce ? 'rk-fly2 rk-fly soft' : 'rk-fly2 rk-fly';
     dockBoard.classList.add('launching');
     setTimeout(() => { if (location.hash === '#board') route(); else location.hash = 'board'; }, 900);
     setTimeout(() => { fly.remove(); dockBoard.classList.remove('launching'); dockBoard.classList.add('landed'); setTimeout(() => dockBoard.classList.remove('landed'), 450); }, 1150);
@@ -1858,8 +1870,8 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   let launched = false;
   $('#launchBtn').addEventListener('click', () => {
     const rk = $('#finalRk');
-    if (launched) { launched = false; rk.classList.remove('go'); $('#finalTitle').textContent = 'Your seat on the manifest is open.'; $('#finalLine').textContent = 'Registrations for Season 5 are boarding. Grab a crew, pick a track, launch.'; $('#launchBtn').textContent = 'Register your crew · launch'; return; }
-    launched = true; rk.classList.add('go'); haptic('launch');
+    if (launched) { launched = false; rk.classList.remove('go'); if (rk.getAnimations) rk.getAnimations().forEach((a) => a.cancel()); $('#finalTitle').textContent = 'Your seat on the manifest is open.'; $('#finalLine').textContent = 'Registrations for Season 5 are boarding. Grab a crew, pick a track, launch.'; $('#launchBtn').textContent = 'Register your crew · launch'; return; }
+    launched = true; rk.classList.add('go'); if (rk.animate) { rk.animate([{ transform: 'translate(-50%,0)' }, { transform: 'translate(-47%,4px)', offset: .06 }, { transform: 'translate(-53%,4px)', offset: .12 }, { transform: 'translate(-50%,0)', offset: .18 }, { transform: 'translate(-50%,-1100px)' }], { duration: 1300, easing: 'cubic-bezier(.35,0,.65,1)', fill: 'forwards' }); } haptic('launch');
     setTimeout(() => { $('#finalTitle').textContent = 'Liftoff. You’re on the manifest.'; $('#finalLine').textContent = 'Next stop: the registration form. Gather your crew of 2–4, pick a track, and see you on 15 January.'; $('#launchBtn').textContent = 'Watch it again'; location.hash = 'board'; }, 1400);
   });
 
