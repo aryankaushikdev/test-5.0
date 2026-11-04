@@ -6,7 +6,7 @@
  * at "/" and every file in public/ as is, so Vercel deploys it with no build-time
  * changes to the page itself. Pages inside the site are hash routes (#tracks, #fx …).
  */
-const PAGES = 'tracks|schedule|prizes|arcade|board|crew|swag|share|fx|sponsors|partners|faq|mypass';
+const PAGES = 'tracks|schedule|prizes|arcade|board|crew|swag|music|share|fx|sponsors|partners|flown|talk|faq|mypass';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,6 +25,7 @@ const nextConfig = {
       // Friendly links such as techacks.tech/fx or /register open the right page of the site.
       { source: `/:page(${PAGES})`, destination: '/#:page', permanent: false },
       { source: '/register', destination: '/#board', permanent: false },
+      { source: '/previous-sponsors', destination: '/#flown', permanent: false },
       { source: '/index.html', destination: '/', permanent: true }
     ];
   },
