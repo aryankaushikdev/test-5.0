@@ -447,6 +447,12 @@ body.gaming{overflow:hidden}
 .msg{display:grid;gap:12px;padding:clamp(20px,3vw,30px);border-radius:var(--r-lg);background:var(--deep);border:1px solid var(--line)}
 .msg pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:14px;line-height:1.6;padding:16px;border-radius:14px;background:var(--void);color:var(--soft);max-height:260px;overflow:auto}
 .copyline{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.copyline.mailhl{position:relative;gap:10px 16px;padding:16px 18px;border-radius:20px;border:1.5px solid var(--orange-t);background:linear-gradient(135deg,rgba(255,91,31,.22),rgba(255,214,107,.10) 60%,rgba(181,124,255,.10));box-shadow:0 0 0 5px rgba(255,91,31,.10),0 18px 44px -18px rgba(255,91,31,.75)}
+.mailhl .mh-k{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:800;font-size:11.5px;letter-spacing:.18em;color:var(--gold)}
+.mailhl .mh-k i{font-style:normal;font-size:15px;color:var(--orange-t)}
+.mailhl .mh-v{flex:0 1 auto;min-width:0;font-family:var(--mono);font-weight:800;font-size:clamp(16px,2.2vw,20px);color:var(--cream);text-decoration:none;word-break:break-all}
+.mailhl .mh-v:hover{color:var(--gold)}
+.mailhl .mh-k{flex:1 0 100%}
 .copyline code{font-family:var(--mono);font-size:15px;padding:10px 14px;border-radius:12px;background:var(--void);user-select:all;word-break:break-all}
 .mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .mgrid figure{margin:0;border-radius:14px;overflow:hidden;background:#0D1326;border:1px solid var(--line)}
@@ -1380,7 +1386,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
         <h2 class="h2">Your hello is already written.</h2>
         <p class="lead">Tap what interests you and we’ll draft the email. Copy it and send it to our partnerships team.</p>
         <div class="goals" id="goals" role="group" aria-label="What interests you"></div>
-        <div class="copyline"><code>partnerships@techacks.tech</code><button class="btn ghost sm" type="button" data-copy="partnerships@techacks.tech" data-h="success">Copy address</button></div>
+        <div class="copyline mailhl"><span class="mh-k"><i aria-hidden="true">✉</i>PARTNERSHIPS</span><a class="mh-v" href="mailto:partnerships@techacks.tech" data-h="tap">partnerships@techacks.tech</a><button class="btn primary sm" type="button" data-copy="partnerships@techacks.tech" data-h="success">Copy address</button></div>
       </div>
       <div class="msg">
         <label class="mono muted" for="orgName" style="font-size:12px;letter-spacing:.14em">YOUR ORGANISATION</label>
