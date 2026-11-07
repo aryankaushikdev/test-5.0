@@ -553,6 +553,37 @@ a.soc:hover{transform:translateY(-2px);border-color:var(--orange-t);color:var(--
 .mtrack .row{display:flex;align-items:center;gap:14px}
 .mtrack b{font-family:var(--display);font-size:18px;line-height:1.2}
 .mtrack .acts{display:flex;flex-wrap:wrap;gap:8px}
+.alb{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,28px);align-items:center;padding:clamp(14px,2vw,20px);border-radius:22px;background:rgba(7,10,20,.55);border:1px solid var(--line)}
+.alb img{width:clamp(120px,22vw,200px);height:auto;aspect-ratio:1;border-radius:16px;display:block;box-shadow:0 24px 60px -16px rgba(0,0,0,.8)}
+.alb h3{font-family:var(--display);font-weight:800;font-size:clamp(22px,3vw,34px);line-height:1.05;margin:6px 0 8px}
+.alb .meta{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.alb .cta-row{justify-content:flex-start;margin-top:14px}
+@media (max-width:560px){.alb{grid-template-columns:1fr;text-align:left}.alb img{width:100%;max-width:280px}}
+.mtrack{transition:border-color .2s ease,background .2s ease}
+.mtrack.on{border-color:rgba(255,91,31,.7);background:rgba(255,91,31,.08)}
+.mtrack .cov{position:relative;flex:none;width:84px;height:84px;border-radius:14px;overflow:hidden;border:0;padding:0;cursor:pointer;background:#0A0E1A;box-shadow:0 10px 30px -10px rgba(0,0,0,.8)}
+.mtrack .cov img{width:100%;height:100%;object-fit:cover;display:block}
+.mtrack .cov span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,10,20,.35);transition:background .2s ease}
+.mtrack .cov span i{width:38px;height:38px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px -4px rgba(255,91,31,.8)}
+.mtrack .cov:hover span{background:rgba(7,10,20,.15)}
+.mtrack .cov svg,.mp button svg{width:16px;height:16px;fill:var(--ink)}
+.mtrack .bar{height:4px;border-radius:2px;background:rgba(244,238,225,.12);overflow:hidden}
+.mtrack .bar i{display:block;height:100%;width:0;background:var(--orange)}
+.mtrack .len{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.mp{position:fixed;left:50%;bottom:calc(var(--dock-h) + 14px + env(safe-area-inset-bottom,0px));z-index:71;transform:translate(-50%,140%);width:min(560px,calc(100% - 24px));display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:8px 12px 8px 8px;border-radius:18px;background:rgba(13,19,38,.97);border:1px solid var(--line2);box-shadow:0 24px 60px -16px rgba(0,0,0,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.mp.on{transform:translate(-50%,0)}
+.mp img{width:48px;height:48px;border-radius:10px;display:block}
+.mp .t{min-width:0}
+.mp .t b{display:block;font-family:var(--display);font-weight:800;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp .t small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--muted)}
+.mp input[type=range]{width:100%;height:4px;margin:6px 0 0;accent-color:var(--orange);display:block}
+.mp .ctl{display:flex;gap:6px;align-items:center}
+.mp button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line2);background:rgba(244,238,225,.05);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.mp button svg{fill:var(--cream)}
+.mp button.mpp{width:44px;height:44px;background:var(--orange);border-color:var(--orange)}
+.mp button.mpp svg{fill:var(--ink)}
+.mp button.x{width:30px;height:30px;border:0;background:transparent}
+.mp button.x svg{width:14px;height:14px;fill:var(--muted)}
 .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
 @media (max-width:1000px){.pk-grid,.tracks3,.tagbox{grid-template-columns:1fr}.pk-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.pk-form{grid-template-columns:1fr}}
@@ -1242,7 +1273,8 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 </div>
 <div class="swpanel" id="sw-music" role="tabpanel" aria-labelledby="swt-music" hidden><div class="wrap">
     <div class="music" id="album" aria-labelledby="mu-h">
-      <div class="sec-head" style="margin:0"><div><p class="eyebrow">02 · Official hackathon music album · TecHacks Musicals</p><h2 class="h2" id="mu-h">Season 5 has a sound.</h2></div><p class="lead" style="max-width:44ch">Seven original tracks on one album, <i>TecHacks Musicals · Season 05</i>, coming to every streaming platform. Use them as the audio in your reels and stories, and download them for your edits.<br><span style="font-family:var(--mono,'JetBrains Mono',monospace);font-size:.82em;letter-spacing:.08em;color:#E7B3A3">Composed with ❤️ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aryan Kaushik</a></span></p></div>
+      <div class="sec-head" style="margin:0"><div><p class="eyebrow">02 · Official hackathon music album · TecHacks Musicals</p><h2 class="h2" id="mu-h">Season 5 has a sound.</h2></div><p class="lead" style="max-width:44ch">Seven original tracks on one album, <i>TecHacks Musicals · Season 05</i>. Press play right here, and keep listening while you explore the site. Streaming platforms are next. Use the tracks as the audio in your reels and stories, and download them for your edits.<br><span style="font-family:var(--mono,'JetBrains Mono',monospace);font-size:.82em;letter-spacing:.08em;color:#E7B3A3">Composed with ❤️ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aryan Kaushik</a></span></p></div>
+      <div class="alb"><img src="img/music/00-album-cover-techacks-5-0.webp" alt="TecHacks Musicals Season 05 album cover: a neon sun inside a gold lotus mandala over a Himalayan ridge, with a rocket climbing" width="640" height="640" loading="lazy"><div><span class="meta">Album · 7 tracks · 24 min</span><h3>TecHacks Musicals · Season 05</h3><span class="meta" style="color:#E7B3A3">Aryan Kaushik · 2026</span><div class="cta-row"><button class="btn primary" type="button" id="albPlay" data-h="launch"><span id="albPlayTxt">Play album</span> <span class="arrow" id="albPlayIc" aria-hidden="true">▶</span></button><button class="btn ghost" type="button" id="albShuffle" data-h="tap">Shuffle</button></div></div></div>
       <div class="tracks3" id="musicList"></div>
       <p class="mono muted" style="margin:0;font-size:12px;letter-spacing:.08em">ON INSTAGRAM, SEARCH “TECHACKS” IN THE MUSIC PICKER ONCE THE TRACKS ARE LIVE. ON LINKEDIN AND X, ADD THE DOWNLOADED TRACK TO YOUR VIDEO BEFORE YOU UPLOAD.</p>
     </div>
@@ -1532,6 +1564,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   <div class="marquee" aria-hidden="true"><span>★ TECHACKS 5.0 ★ 24 HOURS ★ 7 TRACKS ★ FREE TO JOIN ★ FROM BHARAT TO WORLD ★ EST. 2019 ★ TECHACKS 5.0 ★ 24 HOURS ★ 7 TRACKS ★ FREE TO JOIN ★ FROM BHARAT TO WORLD ★ EST. 2019 ★ TECHACKS 5.0 ★ 24 HOURS ★ 7 TRACKS ★ FREE TO JOIN ★ FROM BHARAT TO WORLD ★ EST. 2019&nbsp;</span></div>
 </footer>
 
+<div class="mp" id="mPlayer" role="region" aria-label="Music player" aria-hidden="true"><img id="mpCov" src="img/music/00-album-cover-techacks-5-0.webp" alt="" width="48" height="48"><div class="t"><b id="mpTitle">TecHacks Musicals</b><small id="mpTime">0:00 / 0:00</small><input type="range" id="mpSeek" min="0" max="1000" value="0" aria-label="Seek"></div><div class="ctl"><button type="button" id="mpPrev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button><button type="button" class="mpp" id="mpPP" aria-label="Pause"><svg viewBox="0 0 24 24" id="mpPPi"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><button type="button" id="mpNext" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button><button type="button" class="x" id="mpClose" aria-label="Stop and close the player"><svg viewBox="0 0 24 24"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12 19 17.6 17.6 19 12 13.4 6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button></div></div>
 <nav class="dock" aria-label="Quick">
   <a href="#home" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Home</a>
   <a href="#tracks" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><ellipse cx="12" cy="12" rx="10" ry="4"></ellipse></svg>Tracks</a>
@@ -2032,30 +2065,63 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   })();
 
   /* ================= SHARE KIT ================= */
-  // Fill in when the tracks are released: title, length, streaming links and the downloadable file path (e.g. 'music/techacks5-track-1.mp3').
+  // Streaming links: fill in once the album is live on each platform. Audio = 192 kbps MP3s in music/, covers in img/music/.
   const MUSIC = [
-    { n: '01', title: 'Intro · T-Minus Zero', note: 'Opening ceremony and countdowns', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '02', title: 'Keep the Rhythm', note: 'Hacking kick-off, high-energy hours', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '03', title: 'Chill', note: 'Food breaks and mentor rounds', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '04', title: 'From Bharat to the World', note: 'Title track · main stage and every promo', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '05', title: 'Late Night Energy', note: '12 am to 3 am, beating the slump', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '06', title: 'Focus', note: 'Deep build hours and the final crunch', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '07', title: 'Outro · Splashdown', note: 'Judging, results and sunrise', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' }
+    { n: '01', title: 'Intro · T-Minus Zero', note: 'Opening ceremony and countdowns', len: '3:28', cover: 'img/music/01-intro-t-minus-zero.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-01-intro-t-minus-zero.mp3' },
+    { n: '02', title: 'Keep the Rhythm', note: 'Hacking kick-off, high-energy hours', len: '3:43', cover: 'img/music/02-keep-the-rhythm.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-02-keep-the-rhythm.mp3' },
+    { n: '03', title: 'Chill', note: 'Food breaks and mentor rounds', len: '3:02', cover: 'img/music/03-chill.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-03-chill.mp3' },
+    { n: '04', title: 'From Bharat to the World', note: 'Title track · main stage and every promo', len: '4:04', cover: 'img/music/04-from-bharat-to-the-world.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-04-from-bharat-to-the-world.mp3' },
+    { n: '05', title: 'Late Night Energy', note: '12 am to 3 am, beating the slump', len: '3:44', cover: 'img/music/05-late-night-energy.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-05-late-night-energy.mp3' },
+    { n: '06', title: 'Focus', note: 'Deep build hours and the final crunch', len: '3:17', cover: 'img/music/06-focus.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-06-focus.mp3' },
+    { n: '07', title: 'Outro · Splashdown', note: 'Judging, results and sunrise', len: '3:09', cover: 'img/music/07-outro-splashdown.webp', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: 'music/techacks5-07-outro-splashdown.mp3' }
   ];
   const STORES = [['spotify', 'Spotify'], ['apple', 'Apple Music'], ['youtube', 'YouTube Music'], ['jiosaavn', 'JioSaavn'], ['amazon', 'Amazon Music']];
-  (function () {
-    const ml = $('#musicList');
-    MUSIC.forEach((t) => {
+  const MP = (function () {
+    const ml = $('#musicList'), au = new Audio(); au.preload = 'none';
+    const PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>', PAUSE = '<svg viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>';
+    const fmt = (x) => { x = Math.max(0, Math.floor(x || 0)); return Math.floor(x / 60) + ':' + String(x % 60).padStart(2, '0'); };
+    let cur = -1, order = MUSIC.map((_, i) => i); const cards = [];
+    MUSIC.forEach((t, i) => {
       const c = document.createElement('div'); c.className = 'mtrack';
-      c.innerHTML = '<div class="row"><span class="disc" aria-hidden="true"><i></i></span><div style="min-width:0"><span class="mono muted" style="font-size:11px;letter-spacing:.16em">TRACK ' + t.n + '</span><br><b></b><br><span class="muted" style="font-size:13.5px"></span></div></div><div class="acts"></div>';
-      c.querySelector('b').textContent = t.title; c.querySelector('.row .muted:last-child').textContent = t.note;
+      c.innerHTML = '<div class="row"><button class="cov" type="button"><img alt="" width="84" height="84" loading="lazy"><span><i>' + PLAY + '</i></span></button><div style="min-width:0"><span class="mono muted" style="font-size:11px;letter-spacing:.16em">TRACK ' + t.n + ' · <span class="len"></span></span><br><b></b><br><span class="muted nt" style="font-size:13.5px"></span></div></div><div class="bar" aria-hidden="true"><i></i></div><div class="acts"></div>';
+      c.querySelector('b').textContent = t.title; c.querySelector('.nt').textContent = t.note; c.querySelector('.len').textContent = t.len;
+      const cov = c.querySelector('.cov'); cov.querySelector('img').src = t.cover; cov.setAttribute('aria-label', 'Play ' + t.title);
+      cov.addEventListener('click', () => { if (cur === i) toggle(); else play(i); });
       const acts = c.querySelector('.acts'); let any = false;
       STORES.forEach(([k, label]) => { if (!t.links[k]) return; any = true; const a = document.createElement('a'); a.className = 'btn ghost sm'; a.href = t.links[k]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; acts.appendChild(a); });
-      if (!any) { const s = document.createElement('span'); s.className = 'btn ghost sm'; s.setAttribute('aria-disabled', 'true'); s.textContent = 'Streaming links soon'; acts.appendChild(s); }
+      if (!any) { const s2 = document.createElement('span'); s2.className = 'btn ghost sm'; s2.setAttribute('aria-disabled', 'true'); s2.textContent = 'Streaming links soon'; acts.appendChild(s2); }
       const d = document.createElement('button'); d.type = 'button'; d.className = 'btn primary sm'; d.textContent = t.file ? 'Download for reels' : 'Download soon';
       if (t.file) d.addEventListener('click', () => saveFile(t.file.split('/').pop(), fetchBlob(t.file))); else d.setAttribute('aria-disabled', 'true');
-      acts.appendChild(d); ml.appendChild(c);
+      acts.appendChild(d); ml.appendChild(c); cards.push(c);
     });
+    const bar = $('#mPlayer'), seek = $('#mpSeek');
+    function paint() {
+      const playing = !au.paused;
+      cards.forEach((c, i) => { const on = i === cur; c.classList.toggle('on', on); const b = c.querySelector('.cov'); b.querySelector('i').innerHTML = on && playing ? PAUSE : PLAY; b.setAttribute('aria-label', (on && playing ? 'Pause ' : 'Play ') + MUSIC[i].title); if (!on) c.querySelector('.bar i').style.width = '0'; });
+      $('#mpPPi').innerHTML = playing ? PAUSE.replace(/^<svg[^>]*>|<\/svg>$/g, '') : PLAY.replace(/^<svg[^>]*>|<\/svg>$/g, '');
+      $('#mpPP').setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      $('#albPlayTxt').textContent = cur >= 0 && playing ? 'Pause' : (cur >= 0 ? 'Resume' : 'Play album'); $('#albPlayIc').textContent = playing ? '❚❚' : '▶';
+      if ('mediaSession' in navigator) navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
+    }
+    function play(i) {
+      const t = MUSIC[i]; if (!t || !t.file) return;
+      if (cur !== i) { cur = i; au.src = t.file; $('#mpTitle').textContent = t.title; $('#mpCov').src = t.cover; seek.value = 0;
+        if ('mediaSession' in navigator && window.MediaMetadata) navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: 'Aryan Kaushik', album: 'TecHacks Musicals · Season 05', artwork: [{ src: t.cover, sizes: '640x640', type: 'image/webp' }] }); }
+      bar.classList.add('on'); bar.setAttribute('aria-hidden', 'false');
+      au.play().catch(() => toast('Tap play again to start the music.', 'thinking')); paint();
+    }
+    function toggle() { if (cur < 0) return play(order[0]); if (au.paused) au.play().catch(() => {}); else au.pause(); paint(); }
+    function step(dir) { if (cur < 0) return play(order[0]); const k = order.indexOf(cur); const n = order[(k + dir + order.length) % order.length]; play(n); }
+    au.addEventListener('timeupdate', () => { const d = au.duration || 0, p = d ? au.currentTime / d : 0; $('#mpTime').textContent = fmt(au.currentTime) + ' / ' + fmt(d); if (!seek.matches(':active')) seek.value = Math.round(p * 1000); if (cards[cur]) cards[cur].querySelector('.bar i').style.width = (p * 100) + '%'; });
+    au.addEventListener('ended', () => { const k = order.indexOf(cur); if (k < order.length - 1) play(order[k + 1]); else { paint(); } });
+    au.addEventListener('play', paint); au.addEventListener('pause', paint);
+    seek.addEventListener('input', () => { if (au.duration) au.currentTime = seek.value / 1000 * au.duration; });
+    $('#mpPP').addEventListener('click', toggle); $('#mpPrev').addEventListener('click', () => { if (au.currentTime > 3) au.currentTime = 0; else step(-1); }); $('#mpNext').addEventListener('click', () => step(1));
+    $('#mpClose').addEventListener('click', () => { au.pause(); bar.classList.remove('on'); bar.setAttribute('aria-hidden', 'true'); cur = -1; order = MUSIC.map((_, i) => i); paint(); });
+    $('#albPlay').addEventListener('click', toggle);
+    $('#albShuffle').addEventListener('click', () => { order = MUSIC.map((_, i) => i).sort(() => Math.random() - .5); cur = -1; play(order[0]); toast('Shuffling the album', 'starry'); });
+    if ('mediaSession' in navigator) { const ms = navigator.mediaSession; try { ms.setActionHandler('play', toggle); ms.setActionHandler('pause', toggle); ms.setActionHandler('previoustrack', () => step(-1)); ms.setActionHandler('nexttrack', () => step(1)); } catch (e) {} }
+    return { play, toggle };
   })();
   const pkTrack = $('#pkTrack'); TRACKS.forEach((t, i) => { const o = document.createElement('option'); o.value = String(i); o.textContent = t[0]; pkTrack.appendChild(o); });
   const pkSaved = store.get('pk', {}); ['College', 'Skill', 'Project'].forEach((k) => { $('#pk' + k).value = pkSaved[k] || ''; }); pkTrack.value = pkSaved.Track || '';
