@@ -182,6 +182,9 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.
 .hero .lead{text-align:center}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:inherit}
 .hero .cta-row{justify-content:center}
+.dvf{display:flex;justify-content:center;margin-top:14px;max-width:100%;min-height:0}
+.dvf .apply-button,.dvf iframe{max-width:100%;color-scheme:light}
+.page-hero .dvf{justify-content:inherit}
 .tminus{display:inline-flex;align-items:stretch;gap:8px;padding:9px;border-radius:22px;background:#0A0D18;border:2px solid rgba(244,238,225,.16);box-shadow:inset 0 0 0 6px #121729;max-width:100%}
 .tminus .lbl{writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:center;padding:0 6px;font-family:var(--mono);font-weight:800;font-size:11px;letter-spacing:.2em;color:var(--orange-t)}
 .tminus .cell{min-width:78px;padding:10px 10px;border-radius:12px;background:#1A1F33;text-align:center}
@@ -911,6 +914,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
         <a class="btn primary lg" href="#board" data-h="launch">Register your crew <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn ghost lg" href="#play" data-play data-h="tap">Play Bear Launch</a>
       </div>
+      <div class="dvf"><div class="apply-button" data-hackathon-slug="techacks05" data-button-theme="light" style="height:44px;width:312px"></div></div>
       <div class="tminus" role="timer" id="tminus">
         <span class="lbl" aria-hidden="true">T-MINUS</span>
         <div class="cell d"><span class="n" data-t="d">--</span><span class="u">DAYS</span></div>
@@ -1166,6 +1170,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     <h1 class="h1 page" id="bd-h">Your seat is <span class="holo">waiting.</span></h1>
     <p class="lead">Registering takes three steps. Form your crew, read the hacker guide and fill in the form. Approved crews get their boarding passes from us by email.</p>
     <div class="cta-row"><a class="btn primary lg pulse" href="#board" id="regBtn" data-h="launch">REGISTRATIONS STARTING SOON</a></div>
+    <div class="dvf"><div class="apply-button" data-hackathon-slug="techacks05" data-button-theme="light" style="height:44px;width:312px"></div></div>
   </div></div>
   <div class="wrap">
     <div class="steps">
@@ -2229,4 +2234,5 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 <!-- Vercel Speed Insights (same script the @vercel/speed-insights package loads) -->
 <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
 </body></html>
