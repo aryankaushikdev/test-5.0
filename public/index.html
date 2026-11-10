@@ -557,6 +557,32 @@ a.soc:hover{transform:translateY(-2px);border-color:var(--orange-t);color:var(--
 .mtrack b{font-family:var(--display);font-size:18px;line-height:1.2}
 .mtrack .acts{display:flex;flex-wrap:wrap;gap:8px}
 .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.mlinks{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mlinks .mlab{font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.16em;color:var(--muted,#9aa3b8);margin-right:4px}
+.slink{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 18px 0 12px;border-radius:999px;border:1px solid var(--line2);background:rgba(244,238,225,.05);color:var(--cream);text-decoration:none;font-weight:700;font-size:15px;transition:border-color .2s,transform .2s}
+.slink:hover{border-color:var(--cream);transform:translateY(-1px)}
+.slink svg{width:26px;height:26px;flex:none}
+.spot{border-radius:16px;overflow:hidden;background:#121212;box-shadow:0 24px 60px -16px rgba(0,0,0,.8);border:1px solid var(--line);line-height:0}
+.spot iframe{display:block;width:100%;height:352px;border:0;color-scheme:normal}
+.ico-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:rgba(244,238,225,.05);color:var(--cream);text-decoration:none;cursor:pointer;padding:0}
+.ico-btn:hover{border-color:var(--cream)}
+.ico-btn svg{width:22px;height:22px}
+.mtrack .disc img{width:66px;height:66px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(244,238,225,.12)}
+.tracks3{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mtrack{padding:20px;min-height:140px;justify-content:center;transition:border-color .2s ease,transform .2s ease}
+.mtrack:hover{border-color:var(--line2);transform:translateY(-2px)}
+.mtrack{align-items:stretch}
+.mtrack .row{gap:18px;width:100%;justify-content:flex-start}
+.mtrack .disc{width:96px;height:96px;flex:none;border-radius:20px;background:none}
+.mtrack .disc img{width:96px;height:96px;border-radius:20px;box-shadow:0 10px 26px -10px rgba(0,0,0,.8),0 0 0 1px rgba(244,238,225,.14)}
+.mtrack .tx{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mtrack .tn{font-size:11px;letter-spacing:.16em}
+.mtrack .nt{font-size:13.5px;line-height:1.45}
+.mtrack.feat{grid-column:1/-1;border-color:rgba(255,91,31,.55);background:linear-gradient(100deg,rgba(255,91,31,.12),rgba(7,10,20,.6) 60%)}
+.mtrack.feat .disc,.mtrack.feat .disc img{width:128px;height:128px;border-radius:24px}
+.mtrack.feat .tn{color:var(--orange)}
+.mtrack.feat b{font-size:clamp(22px,2.6vw,30px)}
+.mtrack.feat .nt{font-size:15px}
 @media (max-width:1000px){.pk-grid,.tracks3,.tagbox{grid-template-columns:1fr}.pk-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.pk-form{grid-template-columns:1fr}}
 .chat{margin-top:28px;border-radius:var(--r-lg);border:1px solid var(--line);background:radial-gradient(120% 90% at 0% 0%,rgba(94,231,255,.10),transparent 60%),var(--deep);padding:clamp(18px,3vw,28px);display:flex;flex-direction:column;gap:14px}
@@ -1247,9 +1273,11 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 </div>
 <div class="swpanel" id="sw-music" role="tabpanel" aria-labelledby="swt-music" hidden><div class="wrap">
     <div class="music" id="album" aria-labelledby="mu-h">
-      <div class="sec-head" style="margin:0"><div><p class="eyebrow">02 · Official hackathon music album · TecHacks Musicals</p><h2 class="h2" id="mu-h">Season 5 has a sound.</h2></div><p class="lead" style="max-width:44ch">Seven original tracks on one album, <i>TecHacks Musicals · Season 05</i>, coming to every streaming platform. Use them as the audio in your reels and stories, and download them for your edits.<br><span style="font-family:var(--mono,'JetBrains Mono',monospace);font-size:.82em;letter-spacing:.08em;color:#E7B3A3">Composed with ❤️ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aryan Kaushik</a></span></p></div>
+      <div class="sec-head" style="margin:0"><div><p class="eyebrow">02 · Official hackathon music album · TecHacks Musicals</p><h2 class="h2" id="mu-h">Season 5 has a sound.</h2></div><p class="lead" style="max-width:44ch">Seven original tracks on one album, <i>TecHacks 5.0</i>, out now on Spotify, Apple Music and YouTube Music. Stream them, and use them as the audio in your reels and stories.<br><span style="font-family:var(--mono,'JetBrains Mono',monospace);font-size:.82em;letter-spacing:.08em;color:#E7B3A3">Composed with ❤️ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Aryan Kaushik</a></span></p></div>
+      <div class="mlinks" id="albumLinks" aria-label="Stream the album"><span class="mlab">STREAM THE ALBUM</span></div>
+      <div class="spot"><iframe title="TecHacks 5.0 album on Spotify" src="https://open.spotify.com/embed/album/5zfSo6qlM9OT8FxSVFFfll?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
       <div class="tracks3" id="musicList"></div>
-      <p class="mono muted" style="margin:0;font-size:12px;letter-spacing:.08em">ON INSTAGRAM, SEARCH “TECHACKS” IN THE MUSIC PICKER ONCE THE TRACKS ARE LIVE. ON LINKEDIN AND X, ADD THE DOWNLOADED TRACK TO YOUR VIDEO BEFORE YOU UPLOAD.</p>
+      <p class="mono muted" style="margin:0;font-size:12px;letter-spacing:.08em">ON INSTAGRAM, SEARCH “TECHACKS 5.0” OR “ARYAN KAUSHIK” IN THE MUSIC PICKER. ON YOUTUBE SHORTS, ADD IT FROM THE SOUNDS LIBRARY.</p>
     </div>
     <div class="next"><b>Using a track in a reel? Grab a ready-made post.</b><div class="cta-row"><a class="btn primary" href="#share" data-h="launch">Open the share kit <span class="arrow" aria-hidden="true">→</span></a><a class="btn ghost" href="#swag" data-h="tap">Digital swag</a></div></div>
 </div></div>
@@ -1528,7 +1556,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
         <h2 class="h2" style="font-size:clamp(28px,4vw,46px)">Thanks for flying TecHacks.</h2>
         <p style="margin:0;color:#3A3F4E">Made with ♥ by <a href="https://linktr.ee/aryan.kaushik" target="_blank" rel="noopener" data-h="tap">Aryan Kaushik</a>.</p>
         <p style="margin:0;color:#3A3F4E;font-family:var(--mono);font-size:13px;letter-spacing:.16em">SINCE 2019</p>
-        <div class="links"><a href="#home">Home</a><a href="#board">Board</a><a href="#tracks">Tracks</a><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#crew">Crew</a><a href="#sponsors">Partners</a><a href="#swag">Swag</a><a href="#share">Share</a><a href="#faq">FAQ</a></div><div class="socials dark"><a class="soc" href="https://www.instagram.com/techacks.tech/" target="_blank" rel="noopener" aria-label="Instagram @techacks.tech" title="Instagram @techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://x.com/techackstech" target="_blank" rel="noopener" aria-label="X (Twitter) @techackstech" title="X · @techackstech" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4-5.6 6.4H2.2l7.3-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.5l11.2 14.5Z"/></svg></a><a class="soc" href="https://www.facebook.com/techacks.tech" target="_blank" rel="noopener" aria-label="Facebook: TecHacks" title="Facebook · techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1Z"/></svg></a><a class="soc" href="mailto:hi@techacks.tech" aria-label="Email hi@techacks.tech" title="hi@techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a><a class="soc" href="https://discord.gg/87DfB5tvfm" target="_blank" rel="noopener" aria-label="Discord: join the TecHacks server" title="Discord · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a14.6 14.6 0 0 0-5.8 0l-.5-1a16 16 0 0 0-3.9 1.4C2.2 9.1 1.5 12.7 1.8 16.2a16 16 0 0 0 4.8 2.4l1-1.6c-.6-.2-1.1-.5-1.6-.8l.4-.3a11.4 11.4 0 0 0 11.2 0l.4.3c-.5.3-1 .6-1.6.8l1 1.6a16 16 0 0 0 4.8-2.4c.4-4-.6-7.6-2.9-10.8ZM8.7 14.1c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.8 2-1.7 2Zm6.6 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.7 2-1.7 2Z"/></svg></a><a class="soc" href="https://www.linkedin.com/company/techacks.tech" target="_blank" rel="noopener" aria-label="LinkedIn: TecHacks" title="LinkedIn · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3.2-1.9 3.4 0 4 2.2 4 5.1V21h-3v-6.2c0-1.5 0-3.3-2-3.3s-2.3 1.6-2.3 3.2V21H9z"/></svg></a><a class="soc" href="https://linktr.ee/techacks.tech" target="_blank" rel="noopener" aria-label="All our links on Linktree" title="Linktree · techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M4.5 6.5l15 7M19.5 6.5l-15 7"/></svg></a></div>
+        <div class="links"><a href="#home">Home</a><a href="#board">Board</a><a href="#tracks">Tracks</a><a href="#schedule">Schedule</a><a href="#prizes">Prizes</a><a href="#crew">Crew</a><a href="#sponsors">Partners</a><a href="#swag">Swag</a><a href="#share">Share</a><a href="#faq">FAQ</a></div><div class="socials dark"><a class="soc" href="https://www.instagram.com/techacks.tech/" target="_blank" rel="noopener" aria-label="Instagram @techacks.tech" title="Instagram @techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://x.com/techackstech" target="_blank" rel="noopener" aria-label="X (Twitter) @techackstech" title="X · @techackstech" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4-5.6 6.4H2.2l7.3-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.5l11.2 14.5Z"/></svg></a><a class="soc" href="https://www.facebook.com/techacks.tech" target="_blank" rel="noopener" aria-label="Facebook: TecHacks" title="Facebook · techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1Z"/></svg></a><a class="soc" href="mailto:hi@techacks.tech" aria-label="Email hi@techacks.tech" title="hi@techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></a><a class="soc" href="https://discord.gg/87DfB5tvfm" target="_blank" rel="noopener" aria-label="Discord: join the TecHacks server" title="Discord · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a14.6 14.6 0 0 0-5.8 0l-.5-1a16 16 0 0 0-3.9 1.4C2.2 9.1 1.5 12.7 1.8 16.2a16 16 0 0 0 4.8 2.4l1-1.6c-.6-.2-1.1-.5-1.6-.8l.4-.3a11.4 11.4 0 0 0 11.2 0l.4.3c-.5.3-1 .6-1.6.8l1 1.6a16 16 0 0 0 4.8-2.4c.4-4-.6-7.6-2.9-10.8ZM8.7 14.1c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.8 2-1.7 2Zm6.6 0c-1 0-1.7-.9-1.7-2s.8-2 1.7-2 1.8.9 1.7 2c0 1.1-.7 2-1.7 2Z"/></svg></a><a class="soc" href="https://www.linkedin.com/company/techacks.tech" target="_blank" rel="noopener" aria-label="LinkedIn: TecHacks" title="LinkedIn · TecHacks" data-h="tap"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.5 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3 9h3v12H3zM9 9h2.9v1.7h.1c.4-.8 1.4-1.9 3.2-1.9 3.4 0 4 2.2 4 5.1V21h-3v-6.2c0-1.5 0-3.3-2-3.3s-2.3 1.6-2.3 3.2V21H9z"/></svg></a><a class="soc" href="https://open.spotify.com/album/5zfSo6qlM9OT8FxSVFFfll" target="_blank" rel="noopener" aria-label="TecHacks 5.0 album on Spotify" title="Spotify · TecHacks 5.0 album" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M7 9.6c3.4-1 7.1-.7 10 1M7.6 12.7c2.7-.8 5.7-.5 8.1.8M8.2 15.6c2.1-.6 4.3-.4 6.1.6"/></svg></a><a class="soc" href="https://music.apple.com/in/album/techacks-5-0/6832277554" target="_blank" rel="noopener" aria-label="TecHacks 5.0 album on Apple Music" title="Apple Music · TecHacks 5.0 album" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 17V6.6L19 4.5V15"/><circle cx="7" cy="17.2" r="2.5" fill="currentColor" stroke="none"/><circle cx="16.5" cy="15.2" r="2.5" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://music.youtube.com/playlist?list=OLAK5uy_m2DXYhYb2CRldok9awy8cjywcD23NM_XE" target="_blank" rel="noopener" aria-label="TecHacks 5.0 album on YouTube Music" title="YouTube Music · TecHacks 5.0 album" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="5.5"/><path d="M10.6 9.6v4.8l4-2.4z" fill="currentColor" stroke="none"/></svg></a><a class="soc" href="https://linktr.ee/techacks.tech" target="_blank" rel="noopener" aria-label="All our links on Linktree" title="Linktree · techacks.tech" data-h="tap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M4.5 6.5l15 7M19.5 6.5l-15 7"/></svg></a></div>
         <div class="footmail"><span class="fm-k">HELLO</span><a class="fm-v" href="mailto:hi@techacks.tech" data-h="tap">hi@<wbr>techacks.tech</a><button class="btn ink sm" type="button" data-copy="hi@techacks.tech" data-h="success" aria-label="Copy hi@techacks.tech">Copy</button><span class="fm-k">PARTNERS</span><a class="fm-v" href="mailto:partnerships@techacks.tech" data-h="tap">partnerships@<wbr>techacks.tech</a><button class="btn ink sm" type="button" data-copy="partnerships@techacks.tech" data-h="success" aria-label="Copy partnerships@techacks.tech">Copy</button></div>
       </div>
       <div class="r">
@@ -2042,29 +2070,36 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   })();
 
   /* ================= SHARE KIT ================= */
-  // Fill in when the tracks are released: title, length, streaming links and the downloadable file path (e.g. 'music/techacks5-track-1.mp3').
+  // The album is live. Streaming links point to the album on each platform (no audio files are hosted on the site).
+  const ALBUM = {
+    spotify: 'https://open.spotify.com/album/5zfSo6qlM9OT8FxSVFFfll',
+    apple: 'https://music.apple.com/in/album/techacks-5-0/6832277554',
+    youtube: 'https://music.youtube.com/playlist?list=OLAK5uy_m2DXYhYb2CRldok9awy8cjywcD23NM_XE'
+  };
   const MUSIC = [
-    { n: '01', title: 'Intro · T-Minus Zero', note: 'Opening ceremony and countdowns', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '02', title: 'Keep the Rhythm', note: 'Hacking kick-off, high-energy hours', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '03', title: 'Chill', note: 'Food breaks and mentor rounds', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '04', title: 'From Bharat to the World', note: 'Title track · main stage and every promo', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '05', title: 'Late Night Energy', note: '12 am to 3 am, beating the slump', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '06', title: 'Focus', note: 'Deep build hours and the final crunch', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' },
-    { n: '07', title: 'Outro · Splashdown', note: 'Judging, results and sunrise', links: { spotify: '', apple: '', youtube: '', jiosaavn: '', amazon: '' }, file: '' }
+    { n: '01', title: 'Intro · T-Minus Zero', note: 'Opening ceremony and countdowns' },
+    { n: '02', title: 'Keep the Rhythm', note: 'Hacking kick-off, high-energy hours' },
+    { n: '03', title: 'Chill', note: 'Food breaks and mentor rounds' },
+    { n: '04', title: 'From Bharat to the World', note: 'Main stage and every promo', feat: true },
+    { n: '05', title: 'Late Night Energy', note: '12 am to 3 am, beating the slump' },
+    { n: '06', title: 'Focus', note: 'Deep build hours and the final crunch' },
+    { n: '07', title: 'Outro · Splashdown', note: 'Judging, results and sunrise' }
   ];
-  const STORES = [['spotify', 'Spotify'], ['apple', 'Apple Music'], ['youtube', 'YouTube Music'], ['jiosaavn', 'JioSaavn'], ['amazon', 'Amazon Music']];
+  const ICON = {
+    spotify: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1ED760"/><path d="M6.2 9.4c3.9-1.2 8.3-.8 11.7 1.1M6.8 12.6c3.2-.9 6.8-.6 9.6 1M7.4 15.6c2.6-.7 5.3-.5 7.5.8" fill="none" stroke="#0A0E1A" stroke-width="1.9" stroke-linecap="round"/></svg>',
+    apple: '<svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="amg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6A7F"/><stop offset="1" stop-color="#FA233B"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#amg)"/><path d="M10 16.2V8.1l7-1.5v8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><circle cx="8.3" cy="16.4" r="1.9" fill="#fff"/><circle cx="15.3" cy="14.8" r="1.9" fill="#fff"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#FF0000"/><circle cx="12" cy="12" r="6.6" fill="none" stroke="#fff" stroke-width="1.3"/><path d="M10.3 9.2v5.6l4.6-2.8z" fill="#fff"/></svg>'
+  };
+  const STORES = [['spotify', 'Spotify'], ['apple', 'Apple Music'], ['youtube', 'YouTube Music']];
   (function () {
+    const bar = $('#albumLinks');
+    STORES.forEach(([k, label]) => { const a = document.createElement('a'); a.className = 'slink'; a.href = ALBUM[k]; a.target = '_blank'; a.rel = 'noopener'; a.dataset.h = 'tap'; a.innerHTML = ICON[k] + '<span></span>'; a.lastChild.textContent = label; bar.appendChild(a); });
     const ml = $('#musicList');
     MUSIC.forEach((t) => {
-      const c = document.createElement('div'); c.className = 'mtrack';
-      c.innerHTML = '<div class="row"><span class="disc" aria-hidden="true"><i></i></span><div style="min-width:0"><span class="mono muted" style="font-size:11px;letter-spacing:.16em">TRACK ' + t.n + '</span><br><b></b><br><span class="muted" style="font-size:13.5px"></span></div></div><div class="acts"></div>';
-      c.querySelector('b').textContent = t.title; c.querySelector('.row .muted:last-child').textContent = t.note;
-      const acts = c.querySelector('.acts'); let any = false;
-      STORES.forEach(([k, label]) => { if (!t.links[k]) return; any = true; const a = document.createElement('a'); a.className = 'btn ghost sm'; a.href = t.links[k]; a.target = '_blank'; a.rel = 'noopener'; a.textContent = label; acts.appendChild(a); });
-      if (!any) { const s = document.createElement('span'); s.className = 'btn ghost sm'; s.setAttribute('aria-disabled', 'true'); s.textContent = 'Streaming links soon'; acts.appendChild(s); }
-      const d = document.createElement('button'); d.type = 'button'; d.className = 'btn primary sm'; d.textContent = t.file ? 'Download for reels' : 'Download soon';
-      if (t.file) d.addEventListener('click', () => saveFile(t.file.split('/').pop(), fetchBlob(t.file))); else d.setAttribute('aria-disabled', 'true');
-      acts.appendChild(d); ml.appendChild(c);
+      const c = document.createElement('div'); c.className = 'mtrack' + (t.feat ? ' feat' : ''); c.dataset.title = t.title;
+      c.innerHTML = '<div class="row"><span class="disc" aria-hidden="true"><img src="img/music/cover-' + t.n + '.webp" alt="" loading="lazy" width="96" height="96"></span><div class="tx"><span class="mono muted tn"></span><b></b><span class="muted nt"></span></div></div>';
+      c.querySelector('.tn').textContent = 'TRACK ' + t.n + (t.feat ? ' · TITLE TRACK' : ''); c.querySelector('b').textContent = t.title; c.querySelector('.nt').textContent = t.note;
+      ml.appendChild(c);
     });
   })();
   const pkTrack = $('#pkTrack'); TRACKS.forEach((t, i) => { const o = document.createElement('option'); o.value = String(i); o.textContent = t[0]; pkTrack.appendChild(o); });
