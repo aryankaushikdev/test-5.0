@@ -31,6 +31,8 @@
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 </head>
 <body>
+<a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2027-season&utm_content=white" target="_blank"><img src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-white.svg" alt="Major League Hacking 2027 Hackathon Season" style="width:100%"></a>
+
 <style>
 /* Layout: a launch sequence. Home is the whole mission at a glance (highlights + legacy); each other page is one stage of the flight. Dusk-to-space backdrop, holo as the legacy thread, orange for action, a persistent thumb dock on phones. */
 :root{
@@ -78,6 +80,8 @@ main{position:relative;z-index:2}
 .kicker .kf{display:inline-block;width:1.7em;height:1.13em;vertical-align:-.2em;margin:0 .15em;border-radius:2px;box-shadow:0 0 0 1px rgba(244,238,225,.25)}
 .kicker .kg{width:1.25em;height:1.25em;border-radius:50%;vertical-align:-.25em}
 .top .wrap{display:flex;align-items:center;gap:14px;min-height:70px}
+/* room for the MLH trust badge (fixed top-right, 50px in, 60–100px wide) */
+.ribbon .wrap,.top .wrap{padding-right:max(16px,calc(62px + clamp(60px,10vw,100px) - max(0px,(100vw - 1240px)/2)))}
 .brand{display:flex;align-items:center;flex:0 0 auto;text-decoration:none;padding:6px 0}
 .swap{position:relative;display:inline-block;line-height:0}
 .swap img{transition:opacity .35s ease,filter .35s ease}
@@ -727,6 +731,7 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   }
 @media (max-width:560px){
   .ribbon .wrap{font-size:10px;letter-spacing:.12em}
+  .ribbon .rb-x{display:none}
   .brand .lo{height:22px}
   .top-actions .btn.primary{display:none}
   .board{padding:14px 10px 16px}
@@ -910,7 +915,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 <label id="hapticLabel" for="hapticSwitch" aria-hidden="true" style="position:fixed;left:-9999px;top:0">haptic</label>
 <input type="checkbox" id="hapticSwitch" switch aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0">
 
-<div class="ribbon"><div class="wrap"><span>SEASON 05 · FLYING SINCE 2019 · REGISTRATIONS OPEN · APPLY BY 10 JAN 2027</span></div></div>
+<div class="ribbon"><div class="wrap"><span>SEASON 05 · <span class="rb-x">FLYING SINCE 2019 · </span>REGISTRATIONS OPEN · APPLY BY 10 JAN 2027</span></div></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="TecHacks 5.0 home" data-h="tap"><span class="swap" id="logoSwap"><img class="lo" src="img/logo-cream.png" alt="TecHacks 5.0" width="1200" height="143"><img class="hi" src="img/logo-holo.png" alt="" aria-hidden="true" width="1200" height="143"></span></a>
