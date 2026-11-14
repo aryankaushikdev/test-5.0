@@ -75,7 +75,6 @@ main{position:relative;z-index:2}
 /* ribbon + header */
 .ribbon{position:relative;z-index:51;background:var(--orange);color:var(--ink)}
 .ribbon .wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 16px;padding-block:8px;font-family:var(--mono);font-weight:800;font-size:11.5px;letter-spacing:.18em;text-align:center}
-.ribbon .wrap>span{white-space:nowrap}@media (max-width:900px){.ribbon .rb-fly{display:none}.ribbon .wrap{gap:2px 10px}.ribbon .rb-s,.ribbon .rb-sep{display:none}}
 .ribbon .slot{padding:1px 10px;border:1.5px dashed var(--ink);border-radius:6px;letter-spacing:.08em}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(7,10,20,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .kicker .kf{display:inline-block;width:1.7em;height:1.13em;vertical-align:-.2em;margin:0 .15em;border-radius:2px;box-shadow:0 0 0 1px rgba(244,238,225,.25)}
@@ -919,7 +918,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 <label id="hapticLabel" for="hapticSwitch" aria-hidden="true" style="position:fixed;left:-9999px;top:0">haptic</label>
 <input type="checkbox" id="hapticSwitch" switch aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0">
 
-<div class="ribbon"><div class="wrap"><span class="rb-s">SEASON 05<span class="rb-fly"> · FLYING SINCE 2019</span></span><span class="rb-sep">·</span><span>OFFICIAL MLH MEMBER EVENT</span><span class="rb-sep">·</span><span>REGISTRATIONS OPEN</span></div></div>
+<div class="ribbon"><div class="wrap"><span>SEASON 05 · FLYING SINCE 2019 · REGISTRATIONS OPEN</span></div></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="TecHacks 5.0 home" data-h="tap"><span class="swap" id="logoSwap"><img class="lo" src="img/logo-cream.png" alt="TecHacks 5.0" width="1200" height="143"><img class="hi" src="img/logo-holo.png" alt="" aria-hidden="true" width="1200" height="143"></span></a>
