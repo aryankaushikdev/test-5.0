@@ -1922,7 +1922,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   if (!reduce) setTimeout(() => { const s = $('#logoSwap'); s.classList.add('shine'); setTimeout(() => s.classList.remove('shine'), 1400); }, 1200);
 
   /* legacy letter */
-  const LETTER = 'Dear future crew,\n\nIn 2019 a handful of students decided to build a launchpad. 130 hackers showed up. Then 334. Then 623. Season 4 brought 400 of them together for 36 hours.\n\nSeason 5 is the one we have been building toward: an international-standard hackathon, 24 hours, seven tracks, and a room full of people who would rather ship than sleep.\n\nBring an idea you can’t stop thinking about, or find your crew when you land. The Pilot will keep you company.\n\nSee you on the launchpad.';
+  const LETTER = 'Dear future crew,\n\nIn 2019, a handful of students wanted a place to build together, so they made one. 130 hackers showed up, and something clicked.\n\nEvery season since has brought more builders and bigger ideas. Strangers became teammates, and first-timers became mentors.\n\nSeason 5 is our biggest leap yet: an international-standard, 24-hour hackathon for builders from everywhere. A launchpad from Bharat to the world.\n\nBring the idea you can’t stop thinking about, or find your crew when you land. The Pilot will keep you company.\n\nSee you on the launchpad.\n\n— The TecHacks crew';
   const letterEl = $('#letter'); const SCR = '01#%&*+=<>/\\|ABCDEFXYZ';
   function scramble(n) { let o = ''; for (let i = 0; i < LETTER.length; i++) { const ch = LETTER[i]; o += i < n || ch === ' ' || ch === '\n' ? ch : SCR[(i * 7 + n) % SCR.length]; } return o; }
   letterEl.textContent = LETTER.split('\n')[0] + '\n\n' + scramble(0).split('\n').slice(2, 4).join('\n') + ' …';
