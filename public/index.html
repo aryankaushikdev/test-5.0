@@ -174,15 +174,29 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 12% 18%,rgba(244,238,225,.8),transparent 60%),radial-gradient(1px 1px at 78% 12%,rgba(244,238,225,.6),transparent 60%),radial-gradient(1.5px 1.5px at 44% 32%,rgba(244,238,225,.7),transparent 60%),radial-gradient(1px 1px at 88% 40%,rgba(244,238,225,.6),transparent 60%),radial-gradient(1px 1px at 22% 46%,rgba(244,238,225,.5),transparent 60%);background-size:480px 480px;pointer-events:none}
 .hero .wrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding-block:clamp(26px,4vw,40px) 0;text-align:center}
 .hero .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.22em;color:var(--soft)}
-.board{width:100%;max-width:960px;border-radius:22px;background:rgba(9,12,23,.92);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);padding:18px 22px 22px;overflow:hidden}
+.board{position:relative;width:100%;max-width:960px;border-radius:22px;background:linear-gradient(rgba(94,231,255,.035) 1px,transparent 1px) 0 0/100% 28px,linear-gradient(90deg,rgba(94,231,255,.035) 1px,transparent 1px) 0 0/28px 100%,rgba(9,12,23,.94);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 0 60px rgba(94,231,255,.04);padding:18px 22px 18px;overflow:hidden}
+.board::before,.board::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--orange);opacity:.85;pointer-events:none}
+.board::before{left:10px;top:10px;border-right:0;border-bottom:0;border-top-left-radius:8px}
+.board::after{right:10px;bottom:10px;border-left:0;border-top:0;border-bottom-right-radius:8px}
+.mf-n{color:var(--orange-t);margin-right:10px}
+.mf-go{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;margin-left:12px;font-family:var(--mono);font-weight:800;font-size:12px;letter-spacing:.14em;color:#4BE38A}
+.mf-go::before{content:"";width:8px;height:8px;border-radius:50%;background:#4BE38A;box-shadow:0 0 8px #4BE38A,0 0 2px #4BE38A;animation:goBlink 2.4s ease-in-out infinite}
+@keyframes goBlink{0%,80%,100%{opacity:1}88%{opacity:.35}}
+.mf-val{text-shadow:0 0 14px color-mix(in srgb,currentColor 35%,transparent)}
+.board-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;padding-top:12px;border-top:1px dashed rgba(244,238,225,.12);font-family:var(--mono);font-weight:700;font-size:11.5px;letter-spacing:.18em;color:var(--soft)}
+.board-foot .ok{color:#4BE38A}
+.board-foot .ok::before{content:"● ";text-shadow:0 0 8px #4BE38A}
+@media (prefers-reduced-motion:reduce){.mf-go::before{animation:none}}
 .board-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--soft)}
-.board-head .clock{color:var(--orange-t)}
+.board-head .clock{color:var(--orange-t);white-space:nowrap}
+.board-head,.board-foot{padding-left:14px;padding-right:14px}
+.mf-lbl{white-space:nowrap}
 .rows{display:flex;flex-direction:column;gap:8px}
 .row{display:flex;gap:3px;justify-content:center;align-items:center}
 .mf-lbl{flex:0 0 150px;margin-right:18px;text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9CEDC}
 .mf-val{display:flex;align-items:center;flex:0 0 auto;width:calc(10ch + 36px);height:46px;padding:0 18px;box-sizing:border-box;border-radius:10px;background:#161C33;border:1px solid rgba(244,238,225,.08);font-family:var(--mono);font-weight:800;font-size:22px;letter-spacing:0;-webkit-font-smoothing:antialiased}
 .mf-val .ch{display:inline-block;width:1ch;text-align:center}
-.mf-note{flex:0 0 150px;margin-left:18px;text-align:left;font-size:15px;color:#A9B1C7}
+.mf-note{flex:0 0 140px;margin-left:16px;text-align:left;font-size:15px;color:#A9B1C7}
 .cellf{position:relative;display:inline-flex;align-items:center;justify-content:center;width:24px;height:34px;flex:0 0 auto;border-radius:4px;background:#1A1F33;font-family:var(--mono);font-weight:700;font-size:17px}
 .cellf::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.55)}
 .cellf.g{margin-left:16px}
@@ -685,8 +699,8 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .flight{grid-template-columns:repeat(3,minmax(0,1fr))}
   .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
   .board .mf-note{display:none}
-  .mf-lbl{flex-basis:auto;min-width:120px}
-  .board .row{margin-right:168px}
+  .mf-lbl{flex:0 0 190px;min-width:0}
+  .board .row{margin-right:130px}
   .patch{width:150px;height:150px}.patch>div{width:124px;height:124px}.patch b{font-size:30px}
   :root{--dock-h:74px}
   main{padding-bottom:0}
@@ -746,7 +760,15 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .cellf{width:20px;height:28px;font-size:14px;border-radius:3px}
   .cellf.g{margin-left:7px}
   .mf-lbl{min-width:0;flex:0 0 96px;margin-right:10px;font-size:10.5px;letter-spacing:.06em}
-  .mf-val{height:38px;font-size:18px;padding:0 12px;width:calc(10ch + 24px);border-radius:8px}
+  .mf-val{height:38px;font-size:17px;padding:0 10px;width:calc(10ch + 20px);border-radius:8px}
+  .mf-lbl{flex:0 0 112px;min-width:0;font-size:9.5px;letter-spacing:.04em;margin-right:8px}
+  .board-head,.board-foot{padding-left:8px;padding-right:8px}
+  .mf-n{margin-right:5px}
+  .mf-go{margin-left:7px;font-size:10px;letter-spacing:.08em;gap:4px}
+  .mf-go::before{width:6px;height:6px}
+  .board-foot{font-size:9.5px;letter-spacing:.1em}
+  .board::before,.board::after{width:14px;height:14px;left:6px;top:6px}
+  .board::after{left:auto;top:auto;right:6px;bottom:6px}
   .board .row{margin-right:0}
   .row{gap:2px}
   .tminus{width:100%}
@@ -959,8 +981,9 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     <div class="wrap">
       <p class="kicker">// FROM BHARAT <svg class="kf" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="2.5" fill="#fff"/><path d="M0 2.5A2.5 2.5 0 0 1 2.5 0h25A2.5 2.5 0 0 1 30 2.5V6.67H0z" fill="#FF9933"/><path d="M0 13.33h30v4.17A2.5 2.5 0 0 1 27.5 20h-25A2.5 2.5 0 0 1 0 17.5z" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".7"/><circle cx="15" cy="10" r=".55" fill="#000080"/><path d="M15 7.4v5.2M12.4 10h5.2M13.16 8.16l3.68 3.68M16.84 8.16l-3.68 3.68" stroke="#000080" stroke-width=".35"/></svg> TO WORLD <svg class="kf kg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#3D7BFF"/><path d="M6.5 6.2c1.6.4 2.2 1.6 3.4 1.9 1.1.3 1.4 1.4.6 2.2-.9.9-2.6.4-3.1 1.8-.4 1.1.6 2.1.3 3.4-.2.9-1 1.4-1.6 2A10 10 0 0 1 6.5 6.2zM13.6 3.2c.5 1 1.6 1.2 2.5 1.8 1 .7.6 2-.4 2.3-1.2.4-2.4-.3-3 .7-.5.9.4 1.9 1.4 2.1 1.4.3 2.5-.6 3.6.4 1 .9.4 2.5 1.2 3.4.6.7 1.6.6 2.4.4a10 10 0 0 1-6.5 7.3c-.6-1.1-.1-2.4-.9-3.4-.9-1.1-2.7-.8-3.2-2.2-.4-1.1.7-2 1.8-2.2 1.2-.2 2-1.2 1.4-2.3" fill="#5EE7FF" opacity=".9"/><circle cx="12" cy="12" r="10" fill="none" stroke="#F4EEE1" stroke-width="1.2" opacity=".6"/></svg> · TECHACKS SEASON 05</p>
       <div class="board" aria-label="TecHacks 5.0 at a glance">
-        <div class="board-head"><span><span style="color:var(--orange)">●</span> TECHACKS 5.0 · AT A GLANCE</span><span class="clock" id="istClock">--:--:-- IST</span></div>
+        <div class="board-head"><span><span style="color:var(--orange)">●</span> MISSION CONTROL · TH-05</span><span class="clock" id="istClock" aria-label="Countdown to launch">T-MINUS --</span></div>
         <div class="rows" id="rows" role="list"></div>
+        <div class="board-foot"><span class="ok">ALL SYSTEMS GO</span><span id="mfFoot">LAUNCH · 15 JAN 2027</span></div>
       </div>
       <h1 class="h1" id="home-h">Season 5 is <span class="holo">cleared for launch.</span></h1>
       <p class="lead">Every big idea starts as a late-night build.<br>Bring your crew of 2–4, pick 1 track out of 7 and spend 24 hours turning a real problem into a great solution.<br><b style="color:var(--cream)">15–16 January 2027.</b></p>
@@ -1887,16 +1910,17 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   const rowsEl = $('#rows'); const cells = [];
   MF.forEach((r, ri) => {
     const row = document.createElement('div'); row.className = 'row'; row.setAttribute('role', 'listitem'); row.setAttribute('aria-label', [r[0], r[1], r[2]].filter(Boolean).join(' '));
-    const lbl = document.createElement('span'); lbl.className = 'mf-lbl'; lbl.setAttribute('aria-hidden', 'true'); lbl.textContent = r[0]; row.appendChild(lbl);
+    const lbl = document.createElement('span'); lbl.className = 'mf-lbl'; lbl.setAttribute('aria-hidden', 'true'); lbl.innerHTML = '<span class="mf-n">' + String(ri + 1).padStart(2, '0') + '</span>' + r[0]; row.appendChild(lbl);
     const tiles = document.createElement('span'); tiles.className = 'mf-val'; tiles.setAttribute('aria-hidden', 'true');
     const txt = r[1].toUpperCase().padEnd(WCOL, ' ').slice(0, WCOL);
     tiles.style.color = r[3]; for (let i = 0; i < WCOL; i++) { const c = document.createElement('span'); c.className = 'ch'; c.textContent = txt[i] === ' ' ? '' : txt[i]; tiles.appendChild(c); cells.push({ c, real: txt[i], settle: 8 + ((ri * 7 + i * 3) % 50) }); }
     row.appendChild(tiles);
+    const go = document.createElement('span'); go.className = 'mf-go'; go.setAttribute('aria-hidden', 'true'); go.textContent = 'GO'; row.appendChild(go);
     const note = document.createElement('span'); note.className = 'mf-note'; note.setAttribute('aria-hidden', 'true'); note.textContent = r[2]; row.appendChild(note);
     rowsEl.appendChild(row);
   });
   if (!reduce) { let tick = 0; const fl = setInterval(() => { tick++; cells.forEach((o, k) => { if (o.real === ' ') return; o.c.textContent = tick < o.settle ? GL[(k * 7 + tick * 13) % GL.length] : o.real; }); if (tick > 60) clearInterval(fl); }, 50); }
-  function istClock() { try { $('#istClock').textContent = new Date().toLocaleTimeString('en-GB', { timeZone: 'Asia/Kolkata', hour12: false }) + ' IST'; } catch (e) {} }
+  function istClock() { let s = Math.max(0, Math.floor((Date.parse('2027-01-15T00:00:00+05:30') - Date.now()) / 1000)); const d = Math.floor(s / 86400); s -= d * 86400; const p2 = (n) => String(n).padStart(2, '0'); $('#istClock').textContent = 'T-MINUS ' + d + 'D ' + p2(Math.floor(s / 3600)) + ':' + p2(Math.floor(s % 3600 / 60)) + ':' + p2(s % 60); }
   istClock(); setInterval(istClock, 1000);
 
   /* countdown */
