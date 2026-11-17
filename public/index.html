@@ -177,11 +177,12 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.
 .board{width:100%;max-width:960px;border-radius:22px;background:rgba(9,12,23,.92);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);padding:18px 22px 22px;overflow:hidden}
 .board-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--soft)}
 .board-head .clock{color:var(--orange-t)}
-.rows{display:flex;flex-direction:column;gap:6px}
+.rows{display:flex;flex-direction:column;gap:8px}
 .row{display:flex;gap:3px;justify-content:center;align-items:center}
-.mf-lbl{flex:0 0 150px;margin-right:18px;text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-.mf-val{display:flex;gap:3px}
-.mf-note{flex:0 0 150px;margin-left:18px;text-align:left;font-size:14px;color:var(--muted)}
+.mf-lbl{flex:0 0 150px;margin-right:18px;text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C9CEDC}
+.mf-val{display:flex;align-items:center;flex:0 0 auto;width:calc(10ch + 36px);height:46px;padding:0 18px;box-sizing:border-box;border-radius:10px;background:#161C33;border:1px solid rgba(244,238,225,.08);font-family:var(--mono);font-weight:800;font-size:22px;letter-spacing:0;-webkit-font-smoothing:antialiased}
+.mf-val .ch{display:inline-block;width:1ch;text-align:center}
+.mf-note{flex:0 0 150px;margin-left:18px;text-align:left;font-size:15px;color:#A9B1C7}
 .cellf{position:relative;display:inline-flex;align-items:center;justify-content:center;width:24px;height:34px;flex:0 0 auto;border-radius:4px;background:#1A1F33;font-family:var(--mono);font-weight:700;font-size:17px}
 .cellf::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.55)}
 .cellf.g{margin-left:16px}
@@ -685,7 +686,7 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
   .board .mf-note{display:none}
   .mf-lbl{flex-basis:auto;min-width:120px}
-  .board .row{margin-right:138px}
+  .board .row{margin-right:168px}
   .patch{width:150px;height:150px}.patch>div{width:124px;height:124px}.patch b{font-size:30px}
   :root{--dock-h:74px}
   main{padding-bottom:0}
@@ -744,8 +745,8 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .board-head{font-size:9.5px;letter-spacing:.1em}
   .cellf{width:20px;height:28px;font-size:14px;border-radius:3px}
   .cellf.g{margin-left:7px}
-  .mf-lbl{min-width:0;flex:0 0 78px;margin-right:8px;font-size:9px;letter-spacing:.08em}
-  .mf-val{gap:2px}
+  .mf-lbl{min-width:0;flex:0 0 96px;margin-right:10px;font-size:10.5px;letter-spacing:.06em}
+  .mf-val{height:38px;font-size:18px;padding:0 12px;width:calc(10ch + 24px);border-radius:8px}
   .board .row{margin-right:0}
   .row{gap:2px}
   .tminus{width:100%}
@@ -1887,7 +1888,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     const lbl = document.createElement('span'); lbl.className = 'mf-lbl'; lbl.setAttribute('aria-hidden', 'true'); lbl.textContent = r[0]; row.appendChild(lbl);
     const tiles = document.createElement('span'); tiles.className = 'mf-val'; tiles.setAttribute('aria-hidden', 'true');
     const txt = r[1].toUpperCase().padEnd(WCOL, ' ').slice(0, WCOL);
-    for (let i = 0; i < WCOL; i++) { const c = document.createElement('span'); c.className = 'cellf'; c.style.color = r[3]; c.textContent = txt[i] === ' ' ? '' : txt[i]; tiles.appendChild(c); cells.push({ c, real: txt[i], settle: 8 + ((ri * 7 + i * 3) % 50) }); }
+    tiles.style.color = r[3]; for (let i = 0; i < WCOL; i++) { const c = document.createElement('span'); c.className = 'ch'; c.textContent = txt[i] === ' ' ? '' : txt[i]; tiles.appendChild(c); cells.push({ c, real: txt[i], settle: 8 + ((ri * 7 + i * 3) % 50) }); }
     row.appendChild(tiles);
     const note = document.createElement('span'); note.className = 'mf-note'; note.setAttribute('aria-hidden', 'true'); note.textContent = r[2]; row.appendChild(note);
     rowsEl.appendChild(row);
