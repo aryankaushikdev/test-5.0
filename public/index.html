@@ -178,7 +178,10 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.
 .board-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--soft)}
 .board-head .clock{color:var(--orange-t)}
 .rows{display:flex;flex-direction:column;gap:6px}
-.row{display:flex;gap:3px;justify-content:center}
+.row{display:flex;gap:3px;justify-content:center;align-items:center}
+.mf-lbl{flex:0 0 150px;margin-right:18px;text-align:right;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
+.mf-val{display:flex;gap:3px}
+.mf-note{flex:0 0 150px;margin-left:18px;text-align:left;font-size:14px;color:var(--muted)}
 .cellf{position:relative;display:inline-flex;align-items:center;justify-content:center;width:24px;height:34px;flex:0 0 auto;border-radius:4px;background:#1A1F33;font-family:var(--mono);font-weight:700;font-size:17px}
 .cellf::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,0,0,.55)}
 .cellf.g{margin-left:16px}
@@ -680,7 +683,9 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .top-actions{margin-left:auto}
   .flight{grid-template-columns:repeat(3,minmax(0,1fr))}
   .proof{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .board .c3{display:none}
+  .board .mf-note{display:none}
+  .mf-lbl{flex-basis:auto;min-width:120px}
+  .board .row{margin-right:138px}
   .patch{width:150px;height:150px}.patch>div{width:124px;height:124px}.patch b{font-size:30px}
   :root{--dock-h:74px}
   main{padding-bottom:0}
@@ -737,8 +742,11 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .top-actions .btn.primary{display:none}
   .board{padding:14px 10px 16px}
   .board-head{font-size:9.5px;letter-spacing:.1em}
-  .cellf{width:11px;height:19px;font-size:10px;border-radius:2px}
+  .cellf{width:20px;height:28px;font-size:14px;border-radius:3px}
   .cellf.g{margin-left:7px}
+  .mf-lbl{min-width:0;flex:0 0 78px;margin-right:8px;font-size:9px;letter-spacing:.08em}
+  .mf-val{gap:2px}
+  .board .row{margin-right:0}
   .row{gap:2px}
   .tminus{width:100%}
   .tminus .lbl{display:none}
@@ -947,8 +955,8 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   <div class="hero">
     <div class="wrap">
       <p class="kicker">// FROM BHARAT <svg class="kf" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="2.5" fill="#fff"/><path d="M0 2.5A2.5 2.5 0 0 1 2.5 0h25A2.5 2.5 0 0 1 30 2.5V6.67H0z" fill="#FF9933"/><path d="M0 13.33h30v4.17A2.5 2.5 0 0 1 27.5 20h-25A2.5 2.5 0 0 1 0 17.5z" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".7"/><circle cx="15" cy="10" r=".55" fill="#000080"/><path d="M15 7.4v5.2M12.4 10h5.2M13.16 8.16l3.68 3.68M16.84 8.16l-3.68 3.68" stroke="#000080" stroke-width=".35"/></svg> TO WORLD <svg class="kf kg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#3D7BFF"/><path d="M6.5 6.2c1.6.4 2.2 1.6 3.4 1.9 1.1.3 1.4 1.4.6 2.2-.9.9-2.6.4-3.1 1.8-.4 1.1.6 2.1.3 3.4-.2.9-1 1.4-1.6 2A10 10 0 0 1 6.5 6.2zM13.6 3.2c.5 1 1.6 1.2 2.5 1.8 1 .7.6 2-.4 2.3-1.2.4-2.4-.3-3 .7-.5.9.4 1.9 1.4 2.1 1.4.3 2.5-.6 3.6.4 1 .9.4 2.5 1.2 3.4.6.7 1.6.6 2.4.4a10 10 0 0 1-6.5 7.3c-.6-1.1-.1-2.4-.9-3.4-.9-1.1-2.7-.8-3.2-2.2-.4-1.1.7-2 1.8-2.2 1.2-.2 2-1.2 1.4-2.3" fill="#5EE7FF" opacity=".9"/><circle cx="12" cy="12" r="10" fill="none" stroke="#F4EEE1" stroke-width="1.2" opacity=".6"/></svg> · TECHACKS SEASON 05</p>
-      <div class="board" aria-label="Launch manifest">
-        <div class="board-head"><span><span style="color:var(--orange)">●</span> LAUNCH MANIFEST · TH-05</span><span class="clock" id="istClock">--:--:-- IST</span></div>
+      <div class="board" aria-label="TecHacks 5.0 at a glance">
+        <div class="board-head"><span><span style="color:var(--orange)">●</span> TECHACKS 5.0 · AT A GLANCE</span><span class="clock" id="istClock">--:--:-- IST</span></div>
         <div class="rows" id="rows" role="list"></div>
       </div>
       <h1 class="h1" id="home-h">Season 5 is <span class="holo">cleared for launch.</span></h1>
@@ -1871,15 +1879,17 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeSheet(); moreBtn.focus(); } });
 
   /* ================= HOME: manifest board ================= */
-  const MF = [['LAUNCH', '15-16 JAN', '2027', '#F4EEE1'], ['DURATION', '24 HOURS', 'NON-STOP', '#5EE7FF'], ['MODE', 'OFFLINE', 'ON SITE', '#B57CFF'], ['TRACKS', '7 LIVE', 'PICK ONE', '#E7B3A3'], ['PAYLOAD', 'INR 6 LAKH', 'PRIZES', '#FFD66B'], ['CREW', '2 TO 4', 'PER TEAM', '#5EE7FF'], ['BOARDING', 'OPEN', 'GATE 05', '#FF5B1F'], ['ENTRY', 'FREE', 'NO FEE', '#F4EEE1']];
-  const WCOL = [12, 10, 8], GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const MF = [['Dates', '15-16 JAN', 'January 2027', '#F4EEE1'], ['Duration', '24 HOURS', 'Non-stop', '#5EE7FF'], ['Format', 'IN PERSON', 'No online round', '#B57CFF'], ['Tracks', '7 TRACKS', 'Pick any one', '#E7B3A3'], ['Prizes worth', '₹6 LAKH', 'In total', '#FFD66B'], ['Team size', '2 TO 4', 'Per crew', '#5EE7FF'], ['Registration', 'OPEN', 'On Devfolio', '#FF5B1F'], ['Entry fee', 'FREE', 'No cost', '#F4EEE1']];
+  const WCOL = 10, GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const rowsEl = $('#rows'); const cells = [];
   MF.forEach((r, ri) => {
     const row = document.createElement('div'); row.className = 'row'; row.setAttribute('role', 'listitem'); row.setAttribute('aria-label', [r[0], r[1], r[2]].filter(Boolean).join(' '));
-    [0, 1, 2].forEach((col) => {
-      const txt = (r[col] || '').toUpperCase().padEnd(WCOL[col], ' ').slice(0, WCOL[col]);
-      for (let i = 0; i < WCOL[col]; i++) { const c = document.createElement('span'); c.className = 'cellf' + (i === 0 && col > 0 ? ' g' : '') + (col === 2 ? ' c3' : ''); c.setAttribute('aria-hidden', 'true'); c.style.color = col === 0 ? '#C9CEDC' : r[3]; c.textContent = txt[i] === ' ' ? '' : txt[i]; row.appendChild(c); cells.push({ c, real: txt[i], settle: 8 + ((ri * 7 + i * 3 + col * 5) % 50) }); }
-    });
+    const lbl = document.createElement('span'); lbl.className = 'mf-lbl'; lbl.setAttribute('aria-hidden', 'true'); lbl.textContent = r[0]; row.appendChild(lbl);
+    const tiles = document.createElement('span'); tiles.className = 'mf-val'; tiles.setAttribute('aria-hidden', 'true');
+    const txt = r[1].toUpperCase().padEnd(WCOL, ' ').slice(0, WCOL);
+    for (let i = 0; i < WCOL; i++) { const c = document.createElement('span'); c.className = 'cellf'; c.style.color = r[3]; c.textContent = txt[i] === ' ' ? '' : txt[i]; tiles.appendChild(c); cells.push({ c, real: txt[i], settle: 8 + ((ri * 7 + i * 3) % 50) }); }
+    row.appendChild(tiles);
+    const note = document.createElement('span'); note.className = 'mf-note'; note.setAttribute('aria-hidden', 'true'); note.textContent = r[2]; row.appendChild(note);
     rowsEl.appendChild(row);
   });
   if (!reduce) { let tick = 0; const fl = setInterval(() => { tick++; cells.forEach((o, k) => { if (o.real === ' ') return; o.c.textContent = tick < o.settle ? GL[(k * 7 + tick * 13) % GL.length] : o.real; }); if (tick > 60) clearInterval(fl); }, 50); }
