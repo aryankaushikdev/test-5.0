@@ -177,12 +177,14 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.
 .board{width:100%;max-width:960px;border-radius:22px;background:#07090F;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);padding:20px 24px 26px;overflow:hidden}
 .board-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:18px;font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:#C9CEDC}
 .board-head .clock{color:var(--orange-t);white-space:nowrap;font-variant-numeric:tabular-nums}
-.rows{display:flex;flex-direction:column;align-items:center;gap:6px}
-.row{display:flex;align-items:center;gap:22px}
+.board-head>span{white-space:nowrap}
+@media (max-width:400px){.board-head{font-size:9.5px;letter-spacing:.04em;gap:8px}.board-head .hx{display:none}}
+.rows{display:grid;grid-template-columns:auto auto;justify-content:center;align-items:center;column-gap:24px;row-gap:6px;--fw:30px}
+.row{display:contents}
 .flaps{display:flex;gap:2px}
-.flap{position:relative;display:inline-flex;align-items:center;justify-content:center;width:30px;height:42px;border-radius:4px;background:linear-gradient(#20263A 0 50%,#1A1F30 50% 100%);font-family:var(--mono);font-weight:700;font-size:24px;line-height:1;color:#F4EEE1;-webkit-font-smoothing:antialiased}
-.flap::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(5,7,12,.55)}
-.flaps.lbl .flap{color:#9AA3BC;font-weight:600}
+.flap{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;width:var(--fw);aspect-ratio:5/7;border-radius:4px;background:linear-gradient(#232A3F 0 50%,#1C2233 50% 100%);font-family:var(--mono);font-weight:700;font-size:calc(var(--fw) * .78);line-height:1;color:#F4EEE1;-webkit-font-smoothing:antialiased;box-shadow:inset 0 -1px 0 rgba(0,0,0,.35)}
+.flap::after{content:"";position:absolute;z-index:-1;left:0;right:0;top:calc(50% - .5px);height:1px;background:rgba(4,6,11,.75)}
+.flaps.lbl .flap{color:#8E97B1;font-weight:600}
 .lbl-t{display:none}
 .hero h1{max-width:16ch}
 .hero .lead{text-align:center}
@@ -738,13 +740,11 @@ footer{position:relative;z-index:2;background:linear-gradient(180deg,#070A14 0%,
   .top-actions .btn.primary{display:none}
   .board{padding:14px 12px 18px}
   .board-head{font-size:10px;letter-spacing:.08em;margin-bottom:14px}
-  .rows{gap:5px}
-  .row{gap:12px}
+  .rows{column-gap:10px;row-gap:5px;--fw:min(26px,calc((100vw - 186px) / 9))}
   .flaps.lbl{display:none}
-  .lbl-t{display:block;flex:0 0 76px;text-align:right;font-family:var(--mono);font-weight:700;font-size:10.5px;letter-spacing:.06em;color:#9AA3BC}
+  .lbl-t{display:block;text-align:right;white-space:nowrap;font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.04em;color:#9AA3BC}
   .flaps{gap:2px}
-  .flap{width:22px;height:31px;font-size:17px;border-radius:3px}
-  .row{gap:2px}
+  .flap{border-radius:3px}
   .tminus{width:100%}
   .tminus .lbl{display:none}
   .tminus .cell{min-width:0;flex:1 1 0;padding:8px 4px}
@@ -955,7 +955,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     <div class="wrap">
       <p class="kicker">// FROM BHARAT <svg class="kf" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" rx="2.5" fill="#fff"/><path d="M0 2.5A2.5 2.5 0 0 1 2.5 0h25A2.5 2.5 0 0 1 30 2.5V6.67H0z" fill="#FF9933"/><path d="M0 13.33h30v4.17A2.5 2.5 0 0 1 27.5 20h-25A2.5 2.5 0 0 1 0 17.5z" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".7"/><circle cx="15" cy="10" r=".55" fill="#000080"/><path d="M15 7.4v5.2M12.4 10h5.2M13.16 8.16l3.68 3.68M16.84 8.16l-3.68 3.68" stroke="#000080" stroke-width=".35"/></svg> TO WORLD <svg class="kf kg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#3D7BFF"/><path d="M6.5 6.2c1.6.4 2.2 1.6 3.4 1.9 1.1.3 1.4 1.4.6 2.2-.9.9-2.6.4-3.1 1.8-.4 1.1.6 2.1.3 3.4-.2.9-1 1.4-1.6 2A10 10 0 0 1 6.5 6.2zM13.6 3.2c.5 1 1.6 1.2 2.5 1.8 1 .7.6 2-.4 2.3-1.2.4-2.4-.3-3 .7-.5.9.4 1.9 1.4 2.1 1.4.3 2.5-.6 3.6.4 1 .9.4 2.5 1.2 3.4.6.7 1.6.6 2.4.4a10 10 0 0 1-6.5 7.3c-.6-1.1-.1-2.4-.9-3.4-.9-1.1-2.7-.8-3.2-2.2-.4-1.1.7-2 1.8-2.2 1.2-.2 2-1.2 1.4-2.3" fill="#5EE7FF" opacity=".9"/><circle cx="12" cy="12" r="10" fill="none" stroke="#F4EEE1" stroke-width="1.2" opacity=".6"/></svg> · TECHACKS SEASON 05</p>
       <div class="board" aria-label="TecHacks 5.0 at a glance">
-        <div class="board-head"><span><span style="color:var(--orange)">●</span> LAUNCH MANIFEST · TH-05</span><span class="clock" id="istClock" aria-label="Countdown to launch">T-MINUS --</span></div>
+        <div class="board-head"><span><span style="color:var(--orange)">●</span> <span class="hx">LAUNCH </span>MANIFEST · TH-05</span><span class="clock" id="istClock" aria-label="Countdown to launch">T-MINUS --</span></div>
         <div class="rows" id="rows" role="list"></div>
       </div>
       <h1 class="h1" id="home-h">Season 5 is <span class="holo">cleared for launch.</span></h1>
@@ -1879,7 +1879,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 
   /* ================= HOME: manifest board (split-flap) ================= */
   const MF = [['DATES', '15-16 JAN', '#F4EEE1', '15 to 16 January 2027'], ['DURATION', '24 HOURS', '#5EE7FF', '24 hours non-stop'], ['FORMAT', 'IN PERSON', '#C9A5FF', 'In person'], ['TRACKS', '7 TO PICK', '#F2C3B3', '7 tracks, pick one'], ['PRIZES', 'WORTH ₹6L', '#FFD66B', 'Prizes worth 6 lakh rupees'], ['TEAM SIZE', '2 TO 4', '#5EE7FF', 'Teams of 2 to 4'], ['REGISTER', 'OPEN', '#FF7A45', 'Registration open on Devfolio'], ['ENTRY FEE', 'FREE', '#F4EEE1', 'Free to enter']];
-  const WL = 9, WV = 10, GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  const WL = 9, WV = 9, GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   const rowsEl = $('#rows'); const cells = [];
   function flaps(text, n, cls, color, ri, off) {
     const box = document.createElement('span'); box.className = 'flaps' + (cls ? ' ' + cls : ''); box.setAttribute('aria-hidden', 'true');
