@@ -93,7 +93,7 @@ main{position:relative;z-index:2}
 .nav a{display:inline-flex;align-items:center;gap:5px;min-height:38px;padding:0 10px;white-space:nowrap;flex:0 0 auto;border-radius:999px;border:1.5px dashed rgba(244,238,225,.3);text-decoration:none;font-size:13px;color:var(--soft);transition:border-color .2s ease,color .2s ease,background .2s ease}
 .nav a b{font-family:var(--mono);font-weight:700;font-size:12px}
 .nav a:hover{color:var(--cream);border-color:var(--cream)}
-.nav a[aria-current="page"]{color:var(--cream);border-style:solid;border-color:var(--orange-t);background:rgba(255,91,31,.1)}
+.nv-swag{position:relative}.nv-eq{display:inline-flex;align-items:flex-end;gap:2px;height:13px;width:0;opacity:0;overflow:hidden;transition:width .25s ease,opacity .2s ease}.nv-eq i{display:block;width:3px;height:35%;border-radius:1px;background:linear-gradient(180deg,var(--gold),var(--orange-t));animation:nvEq .8s ease-in-out infinite alternate;animation-play-state:paused}.nv-eq i:nth-child(2){animation-delay:-.3s;animation-duration:.7s}.nv-eq i:nth-child(3){animation-delay:-.55s;animation-duration:.95s}.nv-eq i:nth-child(4){animation-delay:-.15s;animation-duration:.65s}@keyframes nvEq{0%{height:25%}50%{height:100%}100%{height:45%}}.nv-notes{position:absolute;inset:0;pointer-events:none}.nv-notes svg{position:absolute;left:50%;top:50%;width:13px;height:13px;opacity:0}.nv-notes svg:nth-child(1){color:var(--cyan)}.nv-notes svg:nth-child(2){color:var(--gold);width:15px;height:15px}.nv-notes svg:nth-child(3){color:var(--violet)}@keyframes nvNote{0%{opacity:0;transform:translate(var(--x0),4px) scale(.6) rotate(0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x1),-34px) scale(1.05) rotate(var(--r))}}.nv-notes svg:nth-child(1){--x0:-22px;--x1:-34px;--r:-18deg}.nv-notes svg:nth-child(2){--x0:-4px;--x1:2px;--r:12deg}.nv-notes svg:nth-child(3){--x0:12px;--x1:26px;--r:20deg}.nv-np{position:absolute;top:calc(100% + 12px);left:50%;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:14px;background:rgba(13,19,38,.97);border:1px solid rgba(255,214,107,.35);box-shadow:0 14px 34px rgba(0,0,0,.45),0 0 24px rgba(255,138,92,.12);white-space:nowrap;opacity:0;visibility:hidden;transform:translate(-50%,-6px);transition:opacity .2s ease,transform .25s ease,visibility 0s .25s;pointer-events:none;text-align:left}.nv-np::before{content:"";position:absolute;top:-6px;left:50%;width:10px;height:10px;background:inherit;border-left:1px solid rgba(255,214,107,.35);border-top:1px solid rgba(255,214,107,.35);transform:translateX(-50%) rotate(45deg)}.nv-np img{width:40px;height:40px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(244,238,225,.15);animation:nvSpin 6s linear infinite;animation-play-state:paused}@keyframes nvSpin{to{transform:rotate(360deg)}}.nv-np small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--orange-t)}.nv-np strong{display:block;font-size:13.5px;color:var(--cream)}.nv-np em{display:block;font-style:normal;font-size:11.5px;color:var(--soft)}.nav .nv-swag:hover,.nav .nv-swag:focus-visible{border-style:solid;border-color:var(--gold);color:var(--cream);box-shadow:0 0 18px rgba(255,214,107,.18)}.nv-swag:hover .nv-eq,.nv-swag:focus-visible .nv-eq{width:18px;opacity:1}.nv-swag:hover .nv-eq i,.nv-swag:focus-visible .nv-eq i,.nv-swag:hover .nv-np img,.nv-swag:focus-visible .nv-np img{animation-play-state:running}.nv-swag:hover .nv-notes svg,.nv-swag:focus-visible .nv-notes svg{animation:nvNote 1.6s ease-out infinite}.nv-swag:hover .nv-notes svg:nth-child(2),.nv-swag:focus-visible .nv-notes svg:nth-child(2){animation-delay:.5s}.nv-swag:hover .nv-notes svg:nth-child(3),.nv-swag:focus-visible .nv-notes svg:nth-child(3){animation-delay:1s}.nv-swag:hover .nv-np,.nv-swag:focus-visible .nv-np{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity .2s ease,transform .25s ease,visibility 0s}@media (hover:none){.nv-np,.nv-notes{display:none}}@media (prefers-reduced-motion:reduce){.nv-eq i,.nv-np img,.nv-swag:hover .nv-notes svg{animation:none!important}.nv-notes{display:none}}.nav a[aria-current="page"]{color:var(--cream);border-style:solid;border-color:var(--orange-t);background:rgba(255,91,31,.1)}
 .top-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
 @media (max-width:1600px){.nav a b{display:none}.nav a{padding:0 9px}}
 @media (max-width:1240px){.top-actions .partner{display:none}}
@@ -936,7 +936,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
       <a href="#prizes" data-h="tap"><b style="color:var(--gold)">03</b>Prizes</a>
       <a href="#arcade" data-h="tap"><b style="color:var(--peach)">04</b>Arcade</a>
       <a href="#crew" data-h="tap"><b style="color:var(--blue)">05</b>Crew</a>
-      <a href="#swag" data-h="tap"><b style="color:var(--cyan)">07</b>Swag</a>
+      <a href="#music" class="nv-swag" data-v="swag" data-h="tap" aria-label="Swag: official music album, digital swag and Chrome extension"><b style="color:var(--cyan)">07</b>Swag<span class="nv-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="nv-notes" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v10.6A3.5 3.5 0 1 0 11 17V7h6V3z"/></svg><svg viewBox="0 0 24 24"><path fill="currentColor" d="M8 4v10.4A3.2 3.2 0 1 0 10 17.4V8l10-2.2v6.6A3.2 3.2 0 1 0 22 15.4V2z"/></svg><svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v10.6A3.5 3.5 0 1 0 11 17V7h6V3z"/></svg></span><span class="nv-np" aria-hidden="true"><img src="img/music/cover-04.webp" alt="" width="44" height="44" loading="lazy"><span><small>● NOW PLAYING</small><strong>TecHacks Musicals</strong><em>Official hackathon album · 7 tracks</em></span></span></a>
       <a href="#faq" data-h="tap"><b style="color:var(--orange-t)">06</b>FAQ</a>
       <a href="#share" data-h="tap"><b style="color:var(--violet)">08</b>Share</a>
       <a href="#sponsors" data-h="tap"><b style="color:var(--gold)">10</b>Partners</a>
@@ -1268,8 +1268,8 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
 <!-- ======================= SWAG ======================= -->
 <section class="view stars-bg" id="swag" data-title="Digital swag · TecHacks 5.0 Hackathon" aria-labelledby="sw-h" hidden>
   <div class="wrap"><div class="swtabs" role="tablist" aria-label="Digital swag sections">
-    <a class="swtab" role="tab" id="swt-swag" data-k="swag" href="#swag" aria-controls="sw-swag" aria-selected="true" data-h="select"><b>01</b>Digital swag</a>
-    <a class="swtab" role="tab" id="swt-music" data-k="music" href="#music" aria-controls="sw-music" aria-selected="false" data-h="select"><b>02</b>Official Hackathon Music Album</a>
+    <a class="swtab" role="tab" id="swt-music" data-k="music" href="#music" aria-controls="sw-music" aria-selected="false" data-h="select"><b>01</b>Official Hackathon Music Album</a>
+    <a class="swtab" role="tab" id="swt-swag" data-k="swag" href="#swag" aria-controls="sw-swag" aria-selected="true" data-h="select"><b>02</b>Digital swag</a>
     <a class="swtab" role="tab" id="swt-fx" data-k="fx" href="#fx" aria-controls="sw-fx" aria-selected="false" data-h="select"><b>03</b>TecHacks Official Chrome Extension</a>
   </div></div>
 <div class="swpanel" id="sw-swag" role="tabpanel" aria-labelledby="swt-swag">
@@ -1608,7 +1608,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
   <a href="#schedule" data-h="tap"><b>02</b>Schedule <small>FLIGHT PLAN</small></a>
   <a href="#prizes" data-h="tap"><b>03</b>Prizes <small>PRIZE POOL</small></a>
   <a href="#crew" data-h="tap"><b>05</b>Crew <small>THE PEOPLE</small></a>
-  <a href="#swag" data-h="tap"><b>07</b>Digital swag <small>SWAG · MUSIC ALBUM · FX</small></a>
+  <a href="#music" data-v="swag" data-h="tap"><b>07</b>Swag <small>MUSIC ALBUM · DIGITAL SWAG · FX</small></a>
   <a href="#share" data-h="tap"><b>08</b>Share kit <small>READY-MADE POSTS</small></a>
   <a href="#sponsors" data-h="tap"><b>10</b>Partners <small>SPONSORS · BECOME ONE</small></a>
   <a href="#home" data-legacy="1" data-h="tap"><b>★</b>Legacy <small>SINCE 2019</small></a>
@@ -1828,7 +1828,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
     const v = $('#' + id);
     if (!reduce) { v.classList.remove('enter'); void v.offsetWidth; v.classList.add('enter'); if (prev) warpT = 1; }
     document.title = v.dataset.title || 'TecHacks 5.0 Hackathon';
-    navLinks.forEach((a) => { if (a.getAttribute('href') === '#' + id && !a.dataset.legacy) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    navLinks.forEach((a) => { if ((a.dataset.v ? '#' + a.dataset.v : a.getAttribute('href')) === '#' + id && !a.dataset.legacy) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     closeSheet();
     if (prev) { window.scrollTo({ top: 0, behavior: 'auto' }); const h = v.querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); } }
     if (id !== 'arcade') Game.close();
