@@ -356,6 +356,7 @@ button.crater{cursor:pointer}
 
 /* ---------- PRIZES ---------- */
 .award{display:flex;gap:16px;align-items:center}
+.cf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cf-grid .card.award{align-items:flex-start}.cf-grid .card p:not(.label){margin:0 0 14px}.cf-btn{align-self:flex-start}.cf-grid .card.award>div{display:flex;flex-direction:column;align-items:flex-start}@media (max-width:560px){.cf-grid{grid-template-columns:1fr}}
 .ico{flex:0 0 auto;width:54px;height:54px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:22px;background:rgba(244,238,225,.04)}
 .ddot{display:block;width:16px;height:16px;border-radius:50%;background:currentColor;box-shadow:0 0 0 5px rgba(244,238,225,.06)}
 .lnode b{font-family:var(--display);font-weight:900;font-size:20px;color:currentColor}
@@ -1262,10 +1263,12 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
       <div class="bh"><div style="display:flex;flex-direction:column;gap:4px;padding-top:12px"><span class="mono" style="font-weight:800;font-size:12px;letter-spacing:.18em">TH-05 CREW · COLLECT ALL 5</span><b class="disp" id="deptName" style="font-family:var(--display);font-weight:900;font-size:clamp(26px,3.4vw,40px);line-height:1">Mission Leads</b><span id="deptLine" style="font-size:15px"></span></div><span id="deptBear"></span></div>
       <div class="slots" id="slots"></div>
     </div>
-    <div class="grid g3" style="margin-top:clamp(40px,6vw,70px)">
-      <div class="card award"><span class="ico" aria-hidden="true" style="color:var(--violet)">◎</span><div><p class="label" style="color:var(--violet);margin:0 0 4px">MENTORS</p><h3 class="h3">Announced soon</h3><p>Industry mentors join you on the floor. <span class="tbc">NAMES</span></p></div></div>
-      <div class="card award"><span class="ico" aria-hidden="true" style="color:var(--gold)">⚖</span><div><p class="label" style="color:var(--gold);margin:0 0 4px">JUDGES</p><h3 class="h3">Announced soon</h3><p>The panel that picks the podium. <span class="tbc">NAMES</span></p></div></div>
-      <div class="card award"><span class="ico" aria-hidden="true" style="color:var(--cyan)">✚</span><div><p class="label" style="color:var(--cyan);margin:0 0 4px">JOIN US</p><h3 class="h3">Volunteer or mentor</h3><p>Help run the launch. <span class="tbc">FORM LINK</span></p></div></div>
+    <div class="sec-head" id="joincrew" style="margin-top:clamp(40px,6vw,70px)"><div><p class="eyebrow">Join the mission · Apply by 5 Jan 2027</p><h2 class="h2">Fly with us. <span class="holo">Not just hack.</span></h2></div><p class="lead" style="max-width:42ch">Mentor a crew, judge the finals, help run the floor or bring your community along. Questions: <a href="mailto:hi@techacks.tech" style="color:var(--cream)">hi@techacks.tech</a>.</p></div>
+    <div class="grid cf-grid">
+      <div class="card award cf"><span class="ico" aria-hidden="true" style="color:var(--violet)">◎</span><div><p class="label" style="color:var(--violet);margin:0 0 4px">MENTORS</p><h3 class="h3">Mentor a crew</h3><p>Unblock builders on the floor through the night.</p><a class="btn ghost sm cf-btn" href="https://forms.gle/5V5D932n9yLNC8fK8" target="_blank" rel="noopener" data-h="launch">Apply to mentor <span aria-hidden="true">↗</span></a></div></div>
+      <div class="card award cf"><span class="ico" aria-hidden="true" style="color:var(--gold)">⚖</span><div><p class="label" style="color:var(--gold);margin:0 0 4px">JUDGES</p><h3 class="h3">Judge the finals</h3><p>Pick the podium from the final demos.</p><a class="btn ghost sm cf-btn" href="https://forms.gle/suAKxFf9Kko5bZCN8" target="_blank" rel="noopener" data-h="launch">Apply to judge <span aria-hidden="true">↗</span></a></div></div>
+      <div class="card award cf"><span class="ico" aria-hidden="true" style="color:var(--cyan)">✚</span><div><p class="label" style="color:var(--cyan);margin:0 0 4px">VOLUNTEERS</p><h3 class="h3">Run the launch</h3><p>Help desk, runners, check-in and good vibes.</p><a class="btn ghost sm cf-btn" href="https://forms.gle/bXzXwjRD6SxpfkRP7" target="_blank" rel="noopener" data-h="launch">Volunteer <span aria-hidden="true">↗</span></a></div></div>
+      <div class="card award cf"><span class="ico" aria-hidden="true" style="color:var(--peach)">✦</span><div><p class="label" style="color:var(--peach);margin:0 0 4px">COMMUNITY PARTNERS</p><h3 class="h3">Bring your community</h3><p>Spread the word and get your community on board.</p><a class="btn ghost sm cf-btn" href="https://forms.gle/pMKh8p94b6iDQHeE9" target="_blank" rel="noopener" data-h="launch">Partner with us <span aria-hidden="true">↗</span></a></div></div>
     </div>
     <div class="next"><b>Want to fly with this crew?</b><a class="btn primary" href="#board" data-h="launch">Board now <span class="arrow" aria-hidden="true">→</span></a></div>
   </div>
@@ -1420,7 +1423,7 @@ kbd{font-family:var(--mono);font-size:.82em;font-weight:700;padding:2px 7px;bord
       <div class="pw-tier"><span class="pw-lab">Venue partner</span>
         <div class="pw-row"><a class="pw-logo pw-t2" href="https://www.chitkara.edu.in/" target="_blank" rel="noopener" data-h="tap"><img src="img/partner-chitkara.svg" alt="Chitkara University · venue partner" width="947" height="321"></a></div>
       </div>
-      <div class="cta-row pw-cta" style="justify-content:center"><a class="btn primary lg" href="#talk" data-h="launch">Become a partner <span class="arrow" aria-hidden="true">→</span></a><a class="btn lg pp-btn" href="#flown" data-h="launch">Previous sponsors &amp; partners <span class="arrow" aria-hidden="true">→</span></a></div>
+      <div class="cta-row pw-cta" style="justify-content:center"><a class="btn primary lg" href="#talk" data-h="launch">Become a partner <span class="arrow" aria-hidden="true">→</span></a><a class="btn ghost lg" href="https://forms.gle/pMKh8p94b6iDQHeE9" target="_blank" rel="noopener" data-h="launch">Community partner? Apply <span aria-hidden="true">↗</span></a><a class="btn lg pp-btn" href="#flown" data-h="launch">Previous sponsors &amp; partners <span class="arrow" aria-hidden="true">→</span></a></div>
     </div>
   </div>
   <div class="wrap" id="why" style="margin-top:clamp(64px,9vw,120px);scroll-margin-top:90px;display:flex;flex-direction:column;gap:18px;padding-bottom:clamp(28px,3.5vw,44px)">
